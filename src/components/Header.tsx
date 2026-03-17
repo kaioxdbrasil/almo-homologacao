@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import almoLogo from "@/assets/almo-logo-full.png";
+import almoLogo from "@/assets/almo-logo-white.png";
 
 const navItems = [
   { label: "Início", href: "/" },
