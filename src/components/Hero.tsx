@@ -24,11 +24,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-28 pb-16 overflow-hidden bg-background">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-28 pb-16 overflow-hidden bg-primary">
       {/* Subtle brand pattern */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-primary/[0.04] blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-secondary/[0.06] blur-3xl" />
+        <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-primary-foreground/[0.04] blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-secondary/[0.08] blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -40,11 +40,11 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-[1.2] mb-4">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground leading-[1.2] mb-4">
               Seu próprio minimercado, funcionando 24h por dia
             </h1>
 
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base md:text-lg text-primary-foreground/70 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               Instale um mercado autônomo em condomínios e gere renda recorrente
               com operação simples e automatizada.
             </p>
@@ -56,7 +56,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex items-center gap-3 justify-center lg:justify-start mb-8 h-10"
             >
-              <span className="text-muted-foreground">✦</span>
+              <span className="text-primary-foreground/60">✦</span>
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentIndex}
@@ -64,7 +64,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="text-xl md:text-2xl font-bold text-primary"
+                  className="text-xl md:text-2xl font-bold text-secondary"
                 >
                   {rotatingWords[currentIndex]}
                 </motion.span>
@@ -78,15 +78,15 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
-              <div className="rounded-xl bg-gradient-primary p-[2px]">
-                <Button size="lg" asChild className="px-6 h-12 rounded-[10px] bg-primary hover:bg-primary/90">
+              <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px]">
+                <Button size="lg" asChild className="px-6 h-12 rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     Quero montar meu minimercado
                   </a>
                 </Button>
               </div>
-              <div className="rounded-xl border-2 border-primary p-[0px]">
-                <Button size="lg" variant="outline" asChild className="px-6 h-12 rounded-[10px] border-0">
+              <div className="rounded-xl border-2 border-primary-foreground p-[0px]">
+                <Button size="lg" variant="outline" asChild className="px-6 h-12 rounded-[10px] border-0 text-primary-foreground hover:bg-primary-foreground/10">
                   <a href={CONDO_URL} target="_blank" rel="noopener noreferrer">
                     Levar para meu condomínio
                   </a>
@@ -109,7 +109,7 @@ export default function Hero() {
                 className="w-full h-full object-cover"
                 loading="eager"
               />
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-primary/30 to-transparent" />
             </div>
           </motion.div>
         </div>
