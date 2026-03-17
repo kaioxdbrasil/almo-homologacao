@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import almoLogo from "@/assets/almo-logo-white.png";
+import almoIsotipo from "@/assets/almo-isotipo-white.png";
 
 const navItems = [
   { label: "Início", href: "/" },
@@ -36,7 +36,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-primary/80">
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         <Link to="/" className="flex items-center">
-          <img src={almoLogo} alt="ALMO" className="h-10" />
+          <img src={almoIsotipo} alt="ALMO" className="h-8" />
         </Link>
 
         {/* Desktop nav */}
