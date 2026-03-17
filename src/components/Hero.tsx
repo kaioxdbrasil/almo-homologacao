@@ -24,11 +24,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-28 pb-16 overflow-hidden bg-background">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-28 pb-16 overflow-hidden bg-primary">
       {/* Subtle brand pattern */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-primary/[0.04] blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-secondary/[0.06] blur-3xl" />
+        <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-primary-foreground/[0.04] blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-secondary/[0.08] blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
