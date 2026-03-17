@@ -100,7 +100,7 @@ export default function Header() {
                     key={item.label}
                     to={item.href}
                     onClick={() => setOpen(false)}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.label}
                   </Link>
