@@ -85,7 +85,7 @@ export default function Hero() {
                   </a>
                 </Button>
               </div>
-              <Button size="lg" variant="outline" asChild className="px-6 h-12">
+              <Button size="lg" variant="outline" asChild className="px-6 h-12 border-2 border-primary">
                 <a href={CONDO_URL} target="_blank" rel="noopener noreferrer">
                   Levar para meu condomínio
                 </a>
