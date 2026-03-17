@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import almoLogo from "@/assets/almo-logo.png";
+import almoLogoWhite from "@/assets/almo-logo-white.png";
 
 export default function Footer() {
   return (
