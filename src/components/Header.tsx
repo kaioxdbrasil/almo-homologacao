@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import almoLogo from "@/assets/almo-logo-full.png";
+import almoLogo from "@/assets/almo-logo-white.png";
 
 const navItems = [
   { label: "Início", href: "/" },
@@ -33,7 +33,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-primary/80">
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         <Link to="/" className="flex items-center">
           <img src={almoLogo} alt="ALMO" className="h-10" />
@@ -46,7 +46,7 @@ export default function Header() {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 {item.label}
               </button>
@@ -54,7 +54,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 {item.label}
               </Link>
@@ -71,7 +71,7 @@ export default function Header() {
         </div>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden text-primary-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -83,7 +83,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card border-b border-border overflow-hidden"
+            className="lg:hidden bg-primary border-b border-primary/80 overflow-hidden"
           >
             <nav className="flex flex-col px-4 py-4 gap-4">
               {navItems.map((item) => (
@@ -91,7 +91,7 @@ export default function Header() {
                   <button
                     key={item.label}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-left text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    className="text-left text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.label}
                   </button>
@@ -100,7 +100,7 @@ export default function Header() {
                     key={item.label}
                     to={item.href}
                     onClick={() => setOpen(false)}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.label}
                   </Link>
