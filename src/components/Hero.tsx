@@ -44,7 +44,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
+              className="flex flex-col gap-4 justify-center lg:justify-start mb-10 max-w-sm mx-auto lg:mx-0"
             >
               <Button size="lg" asChild className="text-base px-8 h-13">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
@@ -81,11 +81,11 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-soft">
+            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md mx-auto">
               <img
                 src={heroImg}
                 alt="Minimercado autônomo ALMO com prateleiras inteligentes e produtos diversos"
-                className="w-full object-cover"
+                className="w-full object-cover max-h-[400px]"
                 loading="eager"
               />
               {/* Subtle gradient overlay at bottom */}
