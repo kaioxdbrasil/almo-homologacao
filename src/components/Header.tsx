@@ -83,7 +83,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card border-b border-border overflow-hidden"
+            className="lg:hidden bg-primary border-b border-primary/80 overflow-hidden"
           >
             <nav className="flex flex-col px-4 py-4 gap-4">
               {navItems.map((item) => (
