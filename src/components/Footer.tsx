@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import almoLogo from "@/assets/almo-logo.png";
+import almoLogoWhite from "@/assets/almo-logo-white.png";
 
 export default function Footer() {
   return (
@@ -7,9 +7,8 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img src={almoLogo} alt="ALMO" className="h-8 w-8" />
-              <span className="font-display text-lg font-bold">ALMO</span>
+            <div className="flex items-center mb-4">
+              <img src={almoLogoWhite} alt="ALMO" className="h-8" />
             </div>
             <p className="text-sm opacity-70">
               Tecnologia que transforma conveniência em faturamento.
