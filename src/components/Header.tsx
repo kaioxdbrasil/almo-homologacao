@@ -91,7 +91,7 @@ export default function Header() {
                   <button
                     key={item.label}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-left text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    className="text-left text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.label}
                   </button>
