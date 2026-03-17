@@ -109,7 +109,7 @@ export default function Hero() {
                 className="w-full h-full object-cover"
                 loading="eager"
               />
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-primary/30 to-transparent" />
             </div>
           </motion.div>
         </div>
