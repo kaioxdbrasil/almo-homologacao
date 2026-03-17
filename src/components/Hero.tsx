@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-28 pb-16 overflow-hidden bg-background">
       {/* Subtle brand pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-primary/[0.04] blur-3xl" />
@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Text column */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -40,54 +40,54 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-primary leading-[1.15] mb-6">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-[1.2] mb-4">
               Seu próprio minimercado, funcionando 24h por dia
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               Instale um mercado autônomo em condomínios e gere renda recorrente
               com operação simples e automatizada.
             </p>
 
-            {/* Rotating words */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.45 }}
-              className="flex items-center gap-2 justify-center lg:justify-start mb-10 h-10"
-            >
-              <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">✦</span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentIndex}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="text-lg md:text-xl font-semibold text-primary"
-                >
-                  {rotatingWords[currentIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </motion.div>
-
-            {/* CTAs */}
+            {/* CTAs side by side */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="flex flex-col gap-4 justify-center lg:justify-start max-w-sm mx-auto lg:mx-0"
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8"
             >
-              <Button size="lg" asChild className="text-base px-8 h-14 text-lg font-semibold">
+              <Button size="lg" asChild className="px-6 h-12">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  🚀 Quero montar meu minimercado
+                  Quero montar meu minimercado
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="text-base px-8 h-14 text-lg font-semibold">
+              <Button size="lg" variant="outline" asChild className="px-6 h-12">
                 <a href={CONDO_URL} target="_blank" rel="noopener noreferrer">
-                  🏢 Levar para meu condomínio
+                  Levar para meu condomínio
                 </a>
               </Button>
+            </motion.div>
+
+            {/* Rotating words below buttons */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="flex items-center gap-2 justify-center lg:justify-start h-8"
+            >
+              <span className="text-sm text-muted-foreground">✦</span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="text-base font-semibold text-primary"
+                >
+                  {rotatingWords[currentIndex]}
+                </motion.span>
+              </AnimatePresence>
             </motion.div>
           </motion.div>
 
@@ -98,15 +98,14 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md mx-auto">
+            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-sm lg:max-w-md mx-auto aspect-[4/3]">
               <img
                 src={heroImg}
                 alt="Minimercado autônomo ALMO com prateleiras inteligentes e produtos diversos"
-                className="w-full object-cover max-h-[400px]"
+                className="w-full h-full object-cover"
                 loading="eager"
               />
-              {/* Subtle gradient overlay at bottom */}
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background/30 to-transparent" />
             </div>
           </motion.div>
         </div>
