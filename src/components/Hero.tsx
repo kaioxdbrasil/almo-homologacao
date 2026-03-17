@@ -1,18 +1,28 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
 import heroImg from "@/assets/hero-market.jpg";
 
 const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero montar meu minimercado autônomo!";
 const CONDO_URL = "https://wa.me/5511999999999?text=Quero levar a ALMO para meu condomínio!";
 
-const valuePills = [
-  "Sem funcionário fixo",
-  "Operação automatizada",
-  "Modelo escalável",
+const rotatingWords = [
+  "Sem funcionário",
+  "Operação simples",
+  "Automatizada",
+  "Escalável",
 ];
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
       {/* Subtle brand pattern */}
@@ -39,38 +49,45 @@ export default function Hero() {
               com operação simples e automatizada.
             </p>
 
+            {/* Rotating words */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="flex items-center gap-2 justify-center lg:justify-start mb-10 h-10"
+            >
+              <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">✦</span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="text-lg md:text-xl font-semibold text-primary"
+                >
+                  {rotatingWords[currentIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </motion.div>
+
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="flex flex-col gap-4 justify-center lg:justify-start mb-10 max-w-sm mx-auto lg:mx-0"
+              className="flex flex-col gap-4 justify-center lg:justify-start max-w-sm mx-auto lg:mx-0"
             >
-              <Button size="lg" asChild className="text-base px-8 h-13">
+              <Button size="lg" asChild className="text-base px-8 h-14 text-lg font-semibold">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   🚀 Quero montar meu minimercado
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="text-base px-8 h-13">
+              <Button size="lg" variant="outline" asChild className="text-base px-8 h-14 text-lg font-semibold">
                 <a href={CONDO_URL} target="_blank" rel="noopener noreferrer">
                   🏢 Levar para meu condomínio
                 </a>
               </Button>
-            </motion.div>
-
-            {/* Value pills */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.45 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center lg:justify-start"
-            >
-              {valuePills.map((text) => (
-                <span key={text} className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle className="text-primary shrink-0" size={16} />
-                  {text}
-                </span>
-              ))}
             </motion.div>
           </motion.div>
 
