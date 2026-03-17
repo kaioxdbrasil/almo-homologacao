@@ -56,7 +56,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex items-center gap-3 justify-center lg:justify-start mb-8 h-10"
             >
-              <span className="text-muted-foreground">✦</span>
+              <span className="text-primary-foreground/60">✦</span>
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentIndex}
