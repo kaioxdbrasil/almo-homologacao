@@ -49,12 +49,34 @@ export default function Hero() {
               com operação simples e automatizada.
             </p>
 
+            {/* Rotating words above buttons */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex items-center gap-3 justify-center lg:justify-start mb-8 h-10"
+            >
+              <span className="text-muted-foreground">✦</span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="text-xl md:text-2xl font-bold text-primary"
+                >
+                  {rotatingWords[currentIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </motion.div>
+
             {/* CTAs side by side */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8"
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
               <Button size="lg" asChild className="px-6 h-12">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
@@ -66,28 +88,6 @@ export default function Hero() {
                   Levar para meu condomínio
                 </a>
               </Button>
-            </motion.div>
-
-            {/* Rotating words below buttons */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.45 }}
-              className="flex items-center gap-2 justify-center lg:justify-start h-8"
-            >
-              <span className="text-sm text-muted-foreground">✦</span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentIndex}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="text-base font-semibold text-primary"
-                >
-                  {rotatingWords[currentIndex]}
-                </motion.span>
-              </AnimatePresence>
             </motion.div>
           </motion.div>
 
