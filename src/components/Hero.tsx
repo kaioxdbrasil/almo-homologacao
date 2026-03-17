@@ -64,7 +64,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="text-xl md:text-2xl font-bold text-primary"
+                  className="text-xl md:text-2xl font-bold text-secondary"
                 >
                   {rotatingWords[currentIndex]}
                 </motion.span>
