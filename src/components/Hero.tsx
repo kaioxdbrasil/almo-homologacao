@@ -81,11 +81,11 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-soft">
+            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md mx-auto">
               <img
                 src={heroImg}
                 alt="Minimercado autônomo ALMO com prateleiras inteligentes e produtos diversos"
-                className="w-full object-cover"
+                className="w-full object-cover max-h-[400px]"
                 loading="eager"
               />
               {/* Subtle gradient overlay at bottom */}
