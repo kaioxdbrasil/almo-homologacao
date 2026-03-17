@@ -78,7 +78,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
-              <div className="rounded-xl bg-gradient-primary p-[2px]">
+              <div className="rounded-xl p-[2px]" style={{ background: 'linear-gradient(135deg, #ff0000, #ff8800, #ffdd00, #00cc00, #0066ff, #8800ff, #ff0000)' }}>
                 <Button size="lg" asChild className="px-6 h-12 rounded-[10px] bg-primary hover:bg-primary/90">
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     Quero montar meu minimercado
