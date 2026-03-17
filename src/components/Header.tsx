@@ -71,7 +71,7 @@ export default function Header() {
         </div>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden text-primary-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
