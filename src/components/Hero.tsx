@@ -78,15 +78,15 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
-              <div className="rounded-xl bg-gradient-primary p-[2px]">
-                <Button size="lg" asChild className="px-6 h-12 rounded-[10px] bg-primary hover:bg-primary/90">
+              <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px]">
+                <Button size="lg" asChild className="px-6 h-12 rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     Quero montar meu minimercado
                   </a>
                 </Button>
               </div>
-              <div className="rounded-xl border-2 border-primary p-[0px]">
-                <Button size="lg" variant="outline" asChild className="px-6 h-12 rounded-[10px] border-0">
+              <div className="rounded-xl border-2 border-primary-foreground p-[0px]">
+                <Button size="lg" variant="outline" asChild className="px-6 h-12 rounded-[10px] border-0 text-primary-foreground hover:bg-primary-foreground/10">
                   <a href={CONDO_URL} target="_blank" rel="noopener noreferrer">
                     Levar para meu condomínio
                   </a>
