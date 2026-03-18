@@ -172,7 +172,7 @@ export default function AccessibilityWidget() {
               </div>
 
               {/* Reset */}
-              <div className="p-4 border-t border-border">
+              <div className="p-4 border-t border-secondary-foreground/10">
                 <button
                   onClick={reset}
                   className="w-full px-4 py-3 rounded-xl text-sm font-bold bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors"
