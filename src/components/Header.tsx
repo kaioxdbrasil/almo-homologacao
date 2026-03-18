@@ -62,10 +62,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex flex-col items-center gap-1">
-          <span className="text-[10px] font-bold uppercase tracking-wide bg-amber-500 text-foreground px-3 py-0.5 rounded-full">
-            Clique aqui
-          </span>
+        <div className="hidden lg:block">
           <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px]">
             <Button asChild className="rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
