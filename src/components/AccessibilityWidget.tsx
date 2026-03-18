@@ -136,17 +136,17 @@ export default function AccessibilityWidget() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed right-0 top-0 bottom-0 w-80 bg-card z-[70] shadow-2xl flex flex-col"
+              className="fixed right-0 top-0 bottom-0 w-80 bg-secondary z-[70] shadow-2xl flex flex-col"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-5 border-b border-border">
+              <div className="flex items-center justify-between p-5 border-b border-secondary-foreground/10">
                 <div className="flex items-center gap-2">
-                  <Accessibility size={20} className="text-primary" />
-                  <h2 className="font-display text-lg font-bold text-foreground">Acessibilidade</h2>
+                  <Accessibility size={20} className="text-secondary-foreground" />
+                  <h2 className="font-display text-lg font-bold text-secondary-foreground">Acessibilidade</h2>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
                   aria-label="Fechar"
                 >
                   <X size={20} />
@@ -162,7 +162,7 @@ export default function AccessibilityWidget() {
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-left ${
                       opt.active
                         ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-foreground hover:bg-muted-foreground/10"
+                        : "bg-primary-foreground text-foreground hover:bg-primary-foreground/80"
                     }`}
                   >
                     {opt.icon && <span>{opt.icon}</span>}
@@ -172,7 +172,7 @@ export default function AccessibilityWidget() {
               </div>
 
               {/* Reset */}
-              <div className="p-4 border-t border-border">
+              <div className="p-4 border-t border-secondary-foreground/10">
                 <button
                   onClick={reset}
                   className="w-full px-4 py-3 rounded-xl text-sm font-bold bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors"
