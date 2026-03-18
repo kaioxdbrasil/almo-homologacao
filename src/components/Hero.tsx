@@ -31,7 +31,7 @@ export default function Hero() {
         <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-secondary/[0.08] blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Text column */}
           <motion.div
