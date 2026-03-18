@@ -132,11 +132,11 @@ export default function AccessibilityWidget() {
               onClick={() => setOpen(false)}
             />
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              initial={{ x: "110%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "110%", opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed right-0 top-0 bottom-0 w-80 bg-secondary z-[70] shadow-2xl flex flex-col"
+              className="fixed right-4 top-1/2 -translate-y-1/2 w-80 bg-secondary z-[70] shadow-2xl flex flex-col rounded-2xl max-h-[80vh]"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-5 border-b border-secondary-foreground/10">
