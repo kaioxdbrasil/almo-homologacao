@@ -79,7 +79,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
               <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px]">
-                <Button size="lg" asChild className="px-6 h-12 rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                <Button size="lg" asChild className="px-6 h-12 rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold">
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                     Quero montar meu minimercado
                   </a>
