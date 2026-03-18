@@ -136,7 +136,7 @@ export default function AccessibilityWidget() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "110%", opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed right-4 top-1/2 -translate-y-1/2 w-80 bg-secondary z-[70] shadow-2xl flex flex-col rounded-2xl"
+              className="fixed right-4 top-4 bottom-4 w-72 sm:w-80 bg-secondary z-[70] shadow-2xl flex flex-col rounded-2xl justify-center"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-5 border-b border-secondary-foreground/10">
