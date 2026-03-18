@@ -162,7 +162,7 @@ export default function AccessibilityWidget() {
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-left ${
                       opt.active
                         ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-foreground hover:bg-muted-foreground/10"
+                        : "bg-primary-foreground text-foreground hover:bg-primary-foreground/80"
                     }`}
                   >
                     {opt.icon && <span>{opt.icon}</span>}
