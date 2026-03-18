@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Text column */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
