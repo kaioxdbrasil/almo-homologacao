@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-28 pb-16 overflow-hidden bg-primary">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-24 pb-12 overflow-hidden bg-primary">
       {/* Subtle brand pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-primary-foreground/[0.04] blur-3xl" />
@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Text column */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -44,7 +44,7 @@ export default function Hero() {
               Seu próprio minimercado, funcionando 24h por dia
             </h1>
 
-            <p className="text-base md:text-lg text-primary-foreground/70 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base md:text-lg text-primary-foreground/70 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               Instale um mercado autônomo em condomínios e gere renda recorrente
               com operação simples e automatizada.
             </p>
@@ -54,7 +54,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-3 justify-center lg:justify-start mb-8 h-10"
+              className="flex items-center gap-3 justify-center lg:justify-start mb-6 h-10"
             >
               <span className="text-primary-foreground/60">✦</span>
               <AnimatePresence mode="wait">
@@ -102,7 +102,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-sm lg:max-w-md mx-auto aspect-[4/3]">
+            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md lg:max-w-lg mx-auto aspect-[4/3]">
               <img
                 src={heroImg}
                 alt="Minimercado autônomo ALMO com prateleiras inteligentes e produtos diversos"
