@@ -63,11 +63,13 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button asChild>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              Falar no WhatsApp
-            </a>
-          </Button>
+          <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px]">
+            <Button asChild className="rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                Seja Licenciado
+              </a>
+            </Button>
+          </div>
         </div>
 
         {/* Mobile toggle */}
