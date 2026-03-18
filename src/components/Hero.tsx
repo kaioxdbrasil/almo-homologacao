@@ -102,7 +102,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-sm lg:max-w-md mx-auto aspect-[4/3]">
+            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md lg:max-w-lg mx-auto aspect-[4/3]">
               <img
                 src={heroImg}
                 alt="Minimercado autônomo ALMO com prateleiras inteligentes e produtos diversos"
