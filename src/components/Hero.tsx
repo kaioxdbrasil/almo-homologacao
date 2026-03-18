@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-28 pb-16 overflow-hidden bg-primary">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-24 pb-12 overflow-hidden bg-primary">
       {/* Subtle brand pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-primary-foreground/[0.04] blur-3xl" />
