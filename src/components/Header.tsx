@@ -108,11 +108,13 @@ export default function Header() {
                   </Link>
                 )
               ))}
-              <Button asChild className="w-full">
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  Falar no WhatsApp
-                </a>
-              </Button>
+              <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px] w-full">
+                <Button asChild className="w-full rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    Seja Licenciado
+                  </a>
+                </Button>
+              </div>
             </nav>
           </motion.div>
         )}
