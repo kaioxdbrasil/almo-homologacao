@@ -154,12 +154,12 @@ export default function AccessibilityWidget() {
               </div>
 
               {/* Options */}
-              <div className="p-4 space-y-2">
+              <div className="px-3 py-3 space-y-1.5">
                 {options.map((opt) => (
                   <button
                     key={opt.label}
                     onClick={opt.action}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-left ${
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all text-left ${
                       opt.active
                         ? "bg-primary text-primary-foreground"
                         : "bg-primary-foreground text-foreground hover:bg-primary-foreground/80"
