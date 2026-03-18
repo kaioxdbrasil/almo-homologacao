@@ -11,6 +11,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Links from "./pages/Links";
 import NotFound from "./pages/NotFound";
+import AccessibilityWidget from "./components/AccessibilityWidget";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AccessibilityWidget />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/almo-honest-market" element={<HonestMarket />} />

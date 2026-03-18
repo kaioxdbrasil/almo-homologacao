@@ -130,3 +130,21 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Accessibility overrides */
+.a11y-white-bg,
+.a11y-white-bg * {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+.a11y-underline-links a {
+  text-decoration: underline !important;
+}
+
+.a11y-readable-font,
+.a11y-readable-font * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+}

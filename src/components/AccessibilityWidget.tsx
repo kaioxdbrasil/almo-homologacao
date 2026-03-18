@@ -1,0 +1,189 @@
+import { useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Accessibility, Plus, Minus, X } from "lucide-react";
+
+interface A11yState {
+  fontSize: number;
+  grayscale: boolean;
+  highContrast: boolean;
+  negativeContrast: boolean;
+  whiteBackground: boolean;
+  underlineLinks: boolean;
+  readableFont: boolean;
+}
+
+const defaultState: A11yState = {
+  fontSize: 100,
+  grayscale: false,
+  highContrast: false,
+  negativeContrast: false,
+  whiteBackground: false,
+  underlineLinks: false,
+  readableFont: false,
+};
+
+export default function AccessibilityWidget() {
+  const [open, setOpen] = useState(false);
+  const [state, setState] = useState<A11yState>(defaultState);
+
+  const applyStyles = useCallback((newState: A11yState) => {
+    const root = document.documentElement;
+
+    // Font size
+    root.style.fontSize = `${newState.fontSize}%`;
+
+    // Grayscale
+    if (newState.grayscale) {
+      root.style.filter = "grayscale(100%)";
+    } else if (newState.negativeContrast) {
+      root.style.filter = "invert(100%)";
+    } else if (newState.highContrast) {
+      root.style.filter = "contrast(150%)";
+    } else {
+      root.style.filter = "";
+    }
+
+    // White background
+    if (newState.whiteBackground) {
+      root.classList.add("a11y-white-bg");
+    } else {
+      root.classList.remove("a11y-white-bg");
+    }
+
+    // Underline links
+    if (newState.underlineLinks) {
+      root.classList.add("a11y-underline-links");
+    } else {
+      root.classList.remove("a11y-underline-links");
+    }
+
+    // Readable font
+    if (newState.readableFont) {
+      root.classList.add("a11y-readable-font");
+    } else {
+      root.classList.remove("a11y-readable-font");
+    }
+  }, []);
+
+  const update = (partial: Partial<A11yState>) => {
+    const newState = { ...state, ...partial };
+    setState(newState);
+    applyStyles(newState);
+  };
+
+  const reset = () => {
+    setState(defaultState);
+    applyStyles(defaultState);
+  };
+
+  const increaseFontSize = () => {
+    if (state.fontSize < 150) update({ fontSize: state.fontSize + 10 });
+  };
+
+  const decreaseFontSize = () => {
+    if (state.fontSize > 70) update({ fontSize: state.fontSize - 10 });
+  };
+
+  const toggleOption = (key: keyof A11yState) => {
+    if (key === "fontSize") return;
+    // For filter-based options, only one can be active
+    if (key === "grayscale" || key === "highContrast" || key === "negativeContrast") {
+      update({
+        grayscale: key === "grayscale" ? !state.grayscale : false,
+        highContrast: key === "highContrast" ? !state.highContrast : false,
+        negativeContrast: key === "negativeContrast" ? !state.negativeContrast : false,
+      });
+    } else {
+      update({ [key]: !state[key] });
+    }
+  };
+
+  const options = [
+    { label: "Aumentar texto", action: increaseFontSize, icon: <Plus size={16} /> },
+    { label: "Diminuir texto", action: decreaseFontSize, icon: <Minus size={16} /> },
+    { label: "Escala de cinza", action: () => toggleOption("grayscale"), active: state.grayscale },
+    { label: "Alto contraste", action: () => toggleOption("highContrast"), active: state.highContrast },
+    { label: "Contraste negativo", action: () => toggleOption("negativeContrast"), active: state.negativeContrast },
+    { label: "Fundo branco", action: () => toggleOption("whiteBackground"), active: state.whiteBackground },
+    { label: "Sublinhar links", action: () => toggleOption("underlineLinks"), active: state.underlineLinks },
+    { label: "Fonte legível", action: () => toggleOption("readableFont"), active: state.readableFont },
+  ];
+
+  return (
+    <>
+      {/* Floating button */}
+      <button
+        onClick={() => setOpen(!open)}
+        aria-label="Acessibilidade"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-l-xl bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:w-14 transition-all"
+      >
+        <Accessibility size={22} />
+      </button>
+
+      {/* Panel */}
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-foreground/20 z-[60]"
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="fixed right-0 top-0 bottom-0 w-80 bg-card z-[70] shadow-2xl flex flex-col"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-5 border-b border-border">
+                <div className="flex items-center gap-2">
+                  <Accessibility size={20} className="text-primary" />
+                  <h2 className="font-display text-lg font-bold text-foreground">Acessibilidade</h2>
+                </div>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label="Fechar"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              {/* Options */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-2">
+                {options.map((opt) => (
+                  <button
+                    key={opt.label}
+                    onClick={opt.action}
+                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-left ${
+                      opt.active
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-foreground hover:bg-muted-foreground/10"
+                    }`}
+                  >
+                    {opt.icon && <span>{opt.icon}</span>}
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Reset */}
+              <div className="p-4 border-t border-border">
+                <button
+                  onClick={reset}
+                  className="w-full px-4 py-3 rounded-xl text-sm font-bold bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors"
+                >
+                  Redefinir
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
