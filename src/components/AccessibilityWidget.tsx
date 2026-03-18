@@ -115,7 +115,7 @@ export default function AccessibilityWidget() {
       <button
         onClick={() => setOpen(!open)}
         aria-label="Acessibilidade"
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-l-xl bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:w-14 transition-all"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-l-xl bg-secondary text-secondary-foreground flex items-center justify-center shadow-lg hover:w-14 transition-all"
       >
         <Accessibility size={22} />
       </button>
