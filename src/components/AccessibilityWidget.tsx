@@ -136,30 +136,30 @@ export default function AccessibilityWidget() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "110%", opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed right-4 top-1/2 -translate-y-1/2 w-80 bg-secondary z-[70] shadow-2xl flex flex-col rounded-2xl"
+              className="fixed right-4 top-4 bottom-4 w-72 sm:w-80 bg-secondary z-[70] shadow-2xl flex flex-col rounded-2xl justify-center"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-5 border-b border-secondary-foreground/10">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-secondary-foreground/10">
                 <div className="flex items-center gap-2">
-                  <Accessibility size={20} className="text-secondary-foreground" />
-                  <h2 className="font-display text-lg font-bold text-secondary-foreground">Acessibilidade</h2>
+                  <Accessibility size={18} className="text-secondary-foreground" />
+                  <h2 className="font-display text-base font-bold text-secondary-foreground">Acessibilidade</h2>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
                   className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
                   aria-label="Fechar"
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
               {/* Options */}
-              <div className="p-4 space-y-2">
+              <div className="px-3 py-3 space-y-1.5">
                 {options.map((opt) => (
                   <button
                     key={opt.label}
                     onClick={opt.action}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-left ${
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all text-left ${
                       opt.active
                         ? "bg-primary text-primary-foreground"
                         : "bg-primary-foreground text-foreground hover:bg-primary-foreground/80"
@@ -172,10 +172,10 @@ export default function AccessibilityWidget() {
               </div>
 
               {/* Reset */}
-              <div className="p-4 border-t border-secondary-foreground/10">
+              <div className="px-3 pb-3 pt-2 border-t border-secondary-foreground/10">
                 <button
                   onClick={reset}
-                  className="w-full px-4 py-3 rounded-xl text-sm font-bold bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors"
+                  className="w-full px-3 py-2.5 rounded-xl text-sm font-bold bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors"
                 >
                   Redefinir
                 </button>
