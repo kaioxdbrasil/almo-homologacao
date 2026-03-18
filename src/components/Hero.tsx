@@ -44,7 +44,7 @@ export default function Hero() {
               Seu próprio minimercado, funcionando 24h por dia
             </h1>
 
-            <p className="text-base md:text-lg text-primary-foreground/70 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base md:text-lg text-primary-foreground/70 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               Instale um mercado autônomo em condomínios e gere renda recorrente
               com operação simples e automatizada.
             </p>
