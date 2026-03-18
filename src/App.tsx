@@ -22,6 +22,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AccessibilityWidget />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/almo-honest-market" element={<HonestMarket />} />
