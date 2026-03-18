@@ -139,17 +139,17 @@ export default function AccessibilityWidget() {
               className="fixed right-4 top-4 bottom-4 w-72 sm:w-80 bg-secondary z-[70] shadow-2xl flex flex-col rounded-2xl justify-center"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-5 border-b border-secondary-foreground/10">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-secondary-foreground/10">
                 <div className="flex items-center gap-2">
-                  <Accessibility size={20} className="text-secondary-foreground" />
-                  <h2 className="font-display text-lg font-bold text-secondary-foreground">Acessibilidade</h2>
+                  <Accessibility size={18} className="text-secondary-foreground" />
+                  <h2 className="font-display text-base font-bold text-secondary-foreground">Acessibilidade</h2>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
                   className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors"
                   aria-label="Fechar"
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
