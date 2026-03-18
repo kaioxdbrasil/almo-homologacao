@@ -154,7 +154,7 @@ export default function AccessibilityWidget() {
               </div>
 
               {/* Options */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-2">
+              <div className="p-4 space-y-2">
                 {options.map((opt) => (
                   <button
                     key={opt.label}
