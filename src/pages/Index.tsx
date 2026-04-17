@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import HowItWorks from "@/components/HowItWorks";
 import BusinessNumbers from "@/components/BusinessNumbers";
-import AppShowcase from "@/components/AppShowcase";
 import SocialProof from "@/components/SocialProof";
 import Segments from "@/components/Segments";
 import ForWho from "@/components/ForWho";
@@ -24,7 +23,6 @@ export default function Index() {
         <TrustBar />
         <HowItWorks />
         <BusinessNumbers />
-        <AppShowcase />
         <SocialProof />
         <Segments />
         <ForWho />
