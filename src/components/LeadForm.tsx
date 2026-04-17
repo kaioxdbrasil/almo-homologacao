@@ -6,17 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, ShieldCheck, TrendingUp, Building2, Briefcase } from "lucide-react";
+import { Loader2, ShieldCheck } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5511999999999";
 
-const PERFIS = [
-  { value: "empreendedor", label: "Empreendedor", icon: TrendingUp },
-  { value: "condominio", label: "Condomínio", icon: Building2 },
-  { value: "empresa", label: "Empresa", icon: Briefcase },
-] as const;
-
-type PerfilValue = typeof PERFIS[number]["value"];
+const FAIXAS = ["Até R$ 30k", "R$ 30k a R$ 50k", "R$ 50k a R$ 80k", "Acima de R$ 80k"] as const;
+const PRAZOS = ["Imediato", "1 a 3 meses", "3 a 6 meses", "Estou pesquisando"] as const;
 
 const leadSchema = z.object({
   nome: z.string().trim().min(2, "Informe seu nome completo").max(100, "Nome muito longo"),
@@ -27,42 +22,30 @@ const leadSchema = z.object({
     .max(20, "WhatsApp inválido")
     .regex(/^[\d\s()+-]+$/, "Use apenas números"),
   cidade: z.string().trim().min(2, "Informe sua cidade").max(100, "Cidade muito longa"),
-  perfil: z.enum(["empreendedor", "condominio", "empresa"], { message: "Selecione um perfil" }),
+  tem_condominio: z.boolean(),
+  faixa_investimento: z.enum(FAIXAS, { message: "Selecione uma faixa" }),
+  prazo_inicio: z.enum(PRAZOS, { message: "Selecione um prazo" }),
 });
 
 type LeadInput = z.infer<typeof leadSchema>;
 
-interface LeadFormProps {
-  defaultPerfil?: PerfilValue;
-  title?: string;
-  subtitle?: string;
-  bullets?: string[];
-}
-
-const defaultBullets = [
-  "Apresentação completa do modelo",
-  "Tira-dúvidas individual com nosso time",
-  "Próximos passos personalizados",
-];
-
-export default function LeadForm({
-  defaultPerfil,
-  title = "Receba a apresentação completa da ALMO",
-  subtitle = "Em até 1 dia útil, um especialista entra em contato no seu WhatsApp.",
-  bullets = defaultBullets,
-}: LeadFormProps) {
+export default function LeadForm() {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState<{
     nome: string;
     whatsapp: string;
     cidade: string;
-    perfil: PerfilValue | "";
+    tem_condominio: boolean;
+    faixa_investimento: typeof FAIXAS[number] | "";
+    prazo_inicio: typeof PRAZOS[number] | "";
   }>({
     nome: "",
     whatsapp: "",
     cidade: "",
-    perfil: defaultPerfil ?? "",
+    tem_condominio: false,
+    faixa_investimento: "",
+    prazo_inicio: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof LeadInput, string>>>({});
 
@@ -87,9 +70,10 @@ export default function LeadForm({
         nome: parsed.data.nome,
         whatsapp: parsed.data.whatsapp,
         cidade: parsed.data.cidade,
-        tem_condominio: false,
-        perfil: parsed.data.perfil,
-        origem: defaultPerfil ? `pagina_${defaultPerfil}` : "landing_page",
+        tem_condominio: parsed.data.tem_condominio,
+        faixa_investimento: parsed.data.faixa_investimento,
+        prazo_inicio: parsed.data.prazo_inicio,
+        origem: "landing_page",
       });
 
       if (error) throw error;
@@ -99,17 +83,25 @@ export default function LeadForm({
         description: "Estamos te redirecionando para o WhatsApp...",
       });
 
-      const perfilLabel = PERFIS.find((p) => p.value === parsed.data.perfil)?.label ?? parsed.data.perfil;
       const msg = encodeURIComponent(
         `Olá! Sou ${parsed.data.nome}, de ${parsed.data.cidade}. ` +
-          `Tenho interesse na ALMO como ${perfilLabel.toLowerCase()}. ` +
-          `Quero saber mais!`
+          `${parsed.data.tem_condominio ? "Já tenho um condomínio em mente. " : "Ainda não tenho um condomínio. "}` +
+          `Faixa de investimento: ${parsed.data.faixa_investimento}. ` +
+          `Prazo: ${parsed.data.prazo_inicio}. ` +
+          `Quero abrir um minimercado autônomo ALMO!`
       );
       setTimeout(() => {
         window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
       }, 800);
 
-      setForm({ nome: "", whatsapp: "", cidade: "", perfil: defaultPerfil ?? "" });
+      setForm({
+        nome: "",
+        whatsapp: "",
+        cidade: "",
+        tem_condominio: false,
+        faixa_investimento: "",
+        prazo_inicio: "",
+      });
     } catch (err) {
       console.error("Erro ao salvar lead:", err);
       toast({
@@ -137,16 +129,24 @@ export default function LeadForm({
               Próximo passo
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 leading-tight">
-              {title}
+              Receba a apresentação completa do modelo ALMO
             </h2>
-            <p className="text-primary-foreground/80 text-lg mb-6">{subtitle}</p>
+            <p className="text-primary-foreground/80 text-lg mb-6">
+              Em até 1 dia útil, um especialista entra em contato no seu WhatsApp e te envia:
+            </p>
             <ul className="space-y-2 text-primary-foreground/90">
-              {bullets.map((b) => (
-                <li key={b} className="flex items-start gap-2">
-                  <span className="text-secondary mt-1">✓</span>
-                  {b}
-                </li>
-              ))}
+              <li className="flex items-start gap-2">
+                <span className="text-secondary mt-1">✓</span>
+                Apresentação completa do modelo de negócio
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-secondary mt-1">✓</span>
+                Projeção financeira detalhada da sua região
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-secondary mt-1">✓</span>
+                Tira-dúvidas individual com nosso time
+              </li>
             </ul>
             <div className="mt-6 flex items-center gap-2 text-sm text-primary-foreground/70">
               <ShieldCheck size={18} className="text-secondary" />
@@ -204,31 +204,84 @@ export default function LeadForm({
               {errors.cidade && <p className="text-destructive text-xs mt-1">{errors.cidade}</p>}
             </div>
 
-            {/* Perfil */}
+            {/* Faixa de investimento */}
             <div>
-              <Label className="font-semibold mb-2 block">Qual o seu perfil?</Label>
-              <div className="grid grid-cols-3 gap-2">
-                {PERFIS.map((p) => {
-                  const active = form.perfil === p.value;
-                  return (
-                    <button
-                      key={p.value}
-                      type="button"
-                      onClick={() => setForm({ ...form, perfil: p.value })}
-                      disabled={loading}
-                      className={`flex flex-col items-center gap-1 h-20 rounded-md border-2 font-semibold text-xs transition-colors p-2 ${
-                        active
-                          ? "border-primary bg-primary text-primary-foreground"
-                          : "border-input bg-background text-foreground hover:border-primary/50"
-                      }`}
-                    >
-                      <p.icon size={20} />
-                      {p.label}
-                    </button>
-                  );
-                })}
+              <Label className="font-semibold mb-2 block">Quanto você pode investir?</Label>
+              <div className="grid grid-cols-2 gap-2">
+                {FAIXAS.map((faixa) => (
+                  <button
+                    key={faixa}
+                    type="button"
+                    onClick={() => setForm({ ...form, faixa_investimento: faixa })}
+                    disabled={loading}
+                    className={`h-11 rounded-md border-2 font-semibold text-xs transition-colors px-2 ${
+                      form.faixa_investimento === faixa
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-input bg-background text-foreground hover:border-primary/50"
+                    }`}
+                  >
+                    {faixa}
+                  </button>
+                ))}
               </div>
-              {errors.perfil && <p className="text-destructive text-xs mt-1">{errors.perfil}</p>}
+              {errors.faixa_investimento && (
+                <p className="text-destructive text-xs mt-1">{errors.faixa_investimento}</p>
+              )}
+            </div>
+
+            {/* Prazo */}
+            <div>
+              <Label className="font-semibold mb-2 block">Quando pretende começar?</Label>
+              <div className="grid grid-cols-2 gap-2">
+                {PRAZOS.map((prazo) => (
+                  <button
+                    key={prazo}
+                    type="button"
+                    onClick={() => setForm({ ...form, prazo_inicio: prazo })}
+                    disabled={loading}
+                    className={`h-11 rounded-md border-2 font-semibold text-xs transition-colors px-2 ${
+                      form.prazo_inicio === prazo
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-input bg-background text-foreground hover:border-primary/50"
+                    }`}
+                  >
+                    {prazo}
+                  </button>
+                ))}
+              </div>
+              {errors.prazo_inicio && (
+                <p className="text-destructive text-xs mt-1">{errors.prazo_inicio}</p>
+              )}
+            </div>
+
+            <div>
+              <Label className="font-semibold mb-2 block">Já tem um condomínio em mente?</Label>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setForm({ ...form, tem_condominio: true })}
+                  disabled={loading}
+                  className={`flex-1 h-11 rounded-md border-2 font-semibold text-sm transition-colors ${
+                    form.tem_condominio
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-input bg-background text-foreground hover:border-primary/50"
+                  }`}
+                >
+                  Sim
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setForm({ ...form, tem_condominio: false })}
+                  disabled={loading}
+                  className={`flex-1 h-11 rounded-md border-2 font-semibold text-sm transition-colors ${
+                    !form.tem_condominio
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-input bg-background text-foreground hover:border-primary/50"
+                  }`}
+                >
+                  Ainda não
+                </button>
+              </div>
             </div>
 
             <Button type="submit" size="lg" disabled={loading} className="w-full h-12 font-bold text-base">
@@ -238,7 +291,7 @@ export default function LeadForm({
                   Enviando...
                 </>
               ) : (
-                "Falar com especialista"
+                "Quero receber a apresentação"
               )}
             </Button>
 
