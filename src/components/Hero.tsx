@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/hero-market.jpg";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero abrir um minimercado autônomo ALMO!";
+const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero levar a ALMO para meu condomínio ou empresa!";
 
 const trustItems = [
   "Sem funcionário",
