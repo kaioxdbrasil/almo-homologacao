@@ -2,31 +2,30 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Wallet, TrendingUp, Percent, Clock } from "lucide-react";
 
-// ⚠️ PLACEHOLDERS — substituir pelos números reais da ALMO
 const numbers = [
+  {
+    icon: TrendingUp,
+    label: "Faturamento anual",
+    value: "Até R$ 180 mil",
+    sub: "Por unidade em operação",
+  },
   {
     icon: Wallet,
     label: "Investimento médio",
-    value: "R$ [XX] mil",
+    value: "A partir de R$ 25 mil",
     sub: "Estrutura completa entregue",
-  },
-  {
-    icon: TrendingUp,
-    label: "Faturamento mensal",
-    value: "R$ 8k a R$ 19k",
-    sub: "Por unidade em operação",
   },
   {
     icon: Percent,
     label: "Margem estimada",
-    value: "[XX]%",
+    value: "25-35%",
     sub: "Após custos operacionais",
   },
   {
     icon: Clock,
-    label: "Payback médio",
-    value: "[XX] meses",
-    sub: "Tempo de retorno do investimento",
+    label: "Unidades no Brasil",
+    value: "+20 unidades",
+    sub: "Na região Norte e expandindo",
   },
 ];
 
