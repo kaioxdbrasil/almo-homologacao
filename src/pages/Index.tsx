@@ -1,12 +1,12 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Solutions from "@/components/Solutions";
 import HowItWorks from "@/components/HowItWorks";
-import Benefits from "@/components/Benefits";
-import Differentials from "@/components/Differentials";
+import BusinessNumbers from "@/components/BusinessNumbers";
 import SocialProof from "@/components/SocialProof";
-import InvestorSection from "@/components/InvestorSection";
-import FAQ from "@/components/FAQ";
+import ForWho from "@/components/ForWho";
+import Differentials from "@/components/Differentials";
+import Objections from "@/components/Objections";
+import LeadForm from "@/components/LeadForm";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -17,13 +17,13 @@ export default function Index() {
       <Header />
       <main>
         <Hero />
-        <Solutions />
         <HowItWorks />
-        <Benefits />
-        <Differentials />
+        <BusinessNumbers />
         <SocialProof />
-        <InvestorSection />
-        <FAQ />
+        <ForWho />
+        <Differentials />
+        <Objections />
+        <LeadForm />
         <FinalCTA />
       </main>
       <Footer />

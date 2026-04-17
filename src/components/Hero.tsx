@@ -1,27 +1,20 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/hero-market.jpg";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero montar meu minimercado autônomo!";
-const CONDO_URL = "https://wa.me/5511999999999?text=Quero levar a ALMO para meu condomínio!";
+const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero abrir um minimercado autônomo ALMO!";
 
-const rotatingWords = [
+const trustItems = [
   "Sem funcionário",
-  "Operação simples",
-  "Automatizada",
-  "Escalável",
+  "Funciona 24h",
+  "Modelo validado",
 ];
 
 export default function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 2200);
-    return () => clearInterval(interval);
-  }, []);
+  const scrollToForm = () => {
+    document.getElementById("quero-comecar")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-24 pb-12 overflow-hidden bg-primary">
@@ -40,38 +33,35 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground leading-[1.2] mb-4">
-              Seu próprio minimercado, funcionando 24h por dia
+            {/* Tag de prova */}
+            <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-4 py-1.5 mb-5">
+              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+              <span className="text-xs font-semibold text-primary-foreground/90">
+                +50 unidades já operando no Brasil
+              </span>
+            </div>
+
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground leading-[1.15] mb-5">
+              Fature de{" "}
+              <span className="text-secondary">R$ 8 mil a R$ 19 mil</span>{" "}
+              por mês com um minimercado autônomo
             </h1>
 
-            <p className="text-base md:text-lg text-primary-foreground/70 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Instale um mercado autônomo em condomínios e gere renda recorrente
-              com operação simples e automatizada.
+            <p className="text-base md:text-lg text-primary-foreground/80 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              Sem funcionário, sem ponto comercial. Funcionando 24h em condomínios — com a estrutura, sistema e suporte da ALMO.
             </p>
 
-            {/* Rotating words above buttons */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-3 justify-center lg:justify-start mb-6 h-10"
-            >
-              <span className="text-primary-foreground/60">✦</span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentIndex}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="text-xl md:text-2xl font-bold text-secondary"
-                >
-                  {rotatingWords[currentIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </motion.div>
+            {/* Trust badges */}
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 justify-center lg:justify-start mb-7">
+              {trustItems.map((item) => (
+                <li key={item} className="flex items-center gap-2 text-sm text-primary-foreground/90">
+                  <CheckCircle2 className="text-secondary" size={18} />
+                  {item}
+                </li>
+              ))}
+            </ul>
 
-            {/* CTAs side by side */}
+            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -79,20 +69,29 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
               <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px]">
-                <Button size="lg" asChild className="px-6 h-12 rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    Quero montar meu minimercado
-                  </a>
+                <Button
+                  size="lg"
+                  onClick={scrollToForm}
+                  className="px-6 h-12 rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold w-full sm:w-auto"
+                >
+                  Quero abrir um minimercado
                 </Button>
               </div>
-              <div className="rounded-xl border-2 border-primary-foreground p-[0px]">
-                <Button size="lg" variant="outline" asChild className="px-6 h-12 rounded-[10px] border-0 bg-primary text-primary-foreground hover:bg-primary/80 font-bold">
-                  <a href={CONDO_URL} target="_blank" rel="noopener noreferrer">
-                    Levar para meu condomínio
-                  </a>
-                </Button>
-              </div>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="px-6 h-12 rounded-xl border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground font-bold"
+              >
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  Falar com especialista
+                </a>
+              </Button>
             </motion.div>
+
+            <p className="text-xs text-primary-foreground/60 mt-4">
+              Resposta em até 1 dia útil • Sem compromisso
+            </p>
           </motion.div>
 
           {/* Image column */}
@@ -105,7 +104,7 @@ export default function Hero() {
             <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md lg:max-w-lg mx-auto aspect-[4/3]">
               <img
                 src={heroImg}
-                alt="Minimercado autônomo ALMO com prateleiras inteligentes e produtos diversos"
+                alt="Minimercado autônomo ALMO instalado em condomínio, funcionando 24h"
                 className="w-full h-full object-cover"
                 loading="eager"
               />
