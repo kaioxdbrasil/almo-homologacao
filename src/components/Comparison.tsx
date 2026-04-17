@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
+import { Check, X, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const rows = [
   { feature: "Modelo de licenciamento (sem royalty mensal)", almo: true, others: false },
@@ -11,10 +12,16 @@ const rows = [
   { feature: "Comunidade ativa de licenciados", almo: true, others: false },
 ];
 
+const ALMO_HIGHLIGHT = "#EBF0FB";
+
 export default function Comparison() {
+  const scrollToForm = () => {
+    document.getElementById("quero-comecar")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="section-padding">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto" style={{ maxWidth: "800px" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +32,7 @@ export default function Comparison() {
             Por que escolher ALMO
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            ALMO vs. outras redes do mercado
+            ALMO vs. concorrentes do mercado
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Comparativo honesto. Você merece saber exatamente o que está contratando.
@@ -46,8 +53,8 @@ export default function Comparison() {
             <div className="p-4 md:p-5 text-center font-display font-bold text-sm md:text-base bg-secondary text-secondary-foreground min-w-[80px] md:min-w-0">
               ALMO
             </div>
-            <div className="p-4 md:p-5 text-center font-display font-bold text-sm md:text-base min-w-[80px] md:min-w-0">
-              Outras
+            <div className="p-4 md:p-5 text-center font-display font-bold text-sm md:text-base min-w-[110px] md:min-w-0 leading-tight">
+              Concorrentes<br className="md:hidden" /> do mercado
             </div>
           </div>
 
@@ -62,7 +69,10 @@ export default function Comparison() {
               <div className="p-4 md:p-5 text-sm md:text-base text-foreground">
                 {row.feature}
               </div>
-              <div className="p-4 md:p-5 flex justify-center min-w-[80px] md:min-w-0">
+              <div
+                className="p-4 md:p-5 flex justify-center min-w-[80px] md:min-w-0"
+                style={{ backgroundColor: ALMO_HIGHLIGHT }}
+              >
                 {row.almo ? (
                   <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
                     <Check className="text-primary-foreground" size={16} strokeWidth={3} />
@@ -73,7 +83,7 @@ export default function Comparison() {
                   </div>
                 )}
               </div>
-              <div className="p-4 md:p-5 flex justify-center min-w-[80px] md:min-w-0">
+              <div className="p-4 md:p-5 flex justify-center min-w-[110px] md:min-w-0">
                 {row.others ? (
                   <div className="w-7 h-7 rounded-full bg-muted-foreground/30 flex items-center justify-center">
                     <Check className="text-muted-foreground" size={16} strokeWidth={3} />
@@ -86,6 +96,25 @@ export default function Comparison() {
               </div>
             </div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8 text-center"
+        >
+          <Button
+            size="lg"
+            onClick={scrollToForm}
+            className="font-bold h-12 px-8 group"
+          >
+            Entenda por que o modelo ALMO é diferente
+            <ArrowRight
+              className="ml-2 transition-transform group-hover:translate-x-1"
+              size={18}
+            />
+          </Button>
         </motion.div>
 
         <p className="text-xs text-muted-foreground text-center mt-4">
