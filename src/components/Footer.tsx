@@ -11,12 +11,21 @@ export default function Footer() {
               <img src={almoLogoWhite} alt="ALMO" className="h-8" />
             </div>
             <p className="text-sm opacity-70">
-              Tecnologia que transforma conveniência em faturamento.
+              Tecnologia que transforma espaços em pontos de venda autônomos.
             </p>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold mb-4">Soluções</h4>
+            <h4 className="font-display font-semibold mb-4">Para você</h4>
+            <ul className="space-y-2 text-sm opacity-70">
+              <li><Link to="/empreendedor" className="hover:opacity-100 transition-opacity">Empreendedor</Link></li>
+              <li><Link to="/condominio" className="hover:opacity-100 transition-opacity">Condomínio</Link></li>
+              <li><Link to="/empresa" className="hover:opacity-100 transition-opacity">Empresa</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display font-semibold mb-4">Formatos</h4>
             <ul className="space-y-2 text-sm opacity-70">
               <li><Link to="/almo-honest-market" className="hover:opacity-100 transition-opacity">ALMO Honest Market</Link></li>
               <li><Link to="/almo-go" className="hover:opacity-100 transition-opacity">ALMO GO</Link></li>
@@ -26,15 +35,8 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold mb-4">Empresa</h4>
             <ul className="space-y-2 text-sm opacity-70">
+              <li><Link to="/sobre" className="hover:opacity-100 transition-opacity">Sobre a ALMO</Link></li>
               <li><Link to="/blog" className="hover:opacity-100 transition-opacity">Blog</Link></li>
-              <li><a href="/#contato" className="hover:opacity-100 transition-opacity">Contato</a></li>
-              <li><a href="/#investidores" className="hover:opacity-100 transition-opacity">Investidores</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-display font-semibold mb-4">Contato</h4>
-            <ul className="space-y-2 text-sm opacity-70">
               <li>contato@almo.com.br</li>
               <li>São Paulo, Brasil</li>
             </ul>

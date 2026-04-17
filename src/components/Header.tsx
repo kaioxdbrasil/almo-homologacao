@@ -6,9 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import almoIsotipo from "@/assets/almo-isotipo-white.png";
 
 const navItems = [
-  { label: "Como funciona", href: "/#como-funciona" },
-  { label: "Números", href: "/#numeros" },
-  { label: "Dúvidas", href: "/#duvidas" },
+  { label: "Empreender", href: "/empreendedor" },
+  { label: "Condomínio", href: "/condominio" },
+  { label: "Empresa", href: "/empresa" },
+  { label: "Sobre", href: "/sobre" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -18,65 +19,56 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  const handleNavClick = (href: string) => {
-    setOpen(false);
-    if (href.startsWith("/#")) {
-      if (location.pathname !== "/") {
-        window.location.href = href;
-      } else {
-        const el = document.getElementById(href.replace("/#", ""));
-        el?.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-primary/80 shadow-md">
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
           <img src={almoIsotipo} alt="ALMO" className="h-14" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navItems.map((item) => (
-            item.href.startsWith("/#") ? (
-              <button
-                key={item.label}
-                onClick={() => handleNavClick(item.href)}
-                className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-              >
-                {item.label}
-              </button>
-            ) : (
+        <nav className="hidden lg:flex items-center gap-7">
+          {navItems.map((item) => {
+            const active = location.pathname === item.href;
+            return (
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  active
+                    ? "text-primary-foreground"
+                    : "text-primary-foreground/70 hover:text-primary-foreground"
+                }`}
               >
                 {item.label}
               </Link>
-            )
-          ))}
+            );
+          })}
         </nav>
 
         <div className="hidden lg:block">
           <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px]">
-            <Button asChild className="rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold">
+            <Button
+              asChild
+              className="rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold"
+            >
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                Seja Licenciado
+                Falar no WhatsApp
               </a>
             </Button>
           </div>
         </div>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden text-primary-foreground" onClick={() => setOpen(!open)}>
+        <button
+          aria-label="Abrir menu"
+          className="lg:hidden text-primary-foreground"
+          onClick={() => setOpen(!open)}
+        >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -87,29 +79,22 @@ export default function Header() {
           >
             <nav className="flex flex-col px-4 py-4 gap-4">
               {navItems.map((item) => (
-                item.href.startsWith("/#") ? (
-                  <button
-                    key={item.label}
-                    onClick={() => handleNavClick(item.href)}
-                    className="text-left text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                  >
-                    {item.label}
-                  </button>
-                ) : (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    onClick={() => setOpen(false)}
-                    className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                )
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  {item.label}
+                </Link>
               ))}
               <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px] w-full">
-                <Button asChild className="w-full rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold">
+                <Button
+                  asChild
+                  className="w-full rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold"
+                >
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    Seja Licenciado
+                    Falar no WhatsApp
                   </a>
                 </Button>
               </div>

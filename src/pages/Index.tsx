@@ -1,13 +1,10 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import TrustBar from "@/components/TrustBar";
 import HowItWorks from "@/components/HowItWorks";
-import BusinessNumbers from "@/components/BusinessNumbers";
+import Formats from "@/components/Formats";
+import JourneySplit from "@/components/JourneySplit";
 import SocialProof from "@/components/SocialProof";
-import Segments from "@/components/Segments";
-import ForWho from "@/components/ForWho";
 import Differentials from "@/components/Differentials";
-import Comparison from "@/components/Comparison";
 import Objections from "@/components/Objections";
 import LeadForm from "@/components/LeadForm";
 import FinalCTA from "@/components/FinalCTA";
@@ -20,14 +17,11 @@ export default function Index() {
       <Header />
       <main>
         <Hero />
-        <TrustBar />
         <HowItWorks />
-        <BusinessNumbers />
+        <Formats />
+        <JourneySplit />
         <SocialProof />
-        <Segments />
-        <ForWho />
         <Differentials />
-        <Comparison />
         <Objections />
         <LeadForm />
         <FinalCTA />
