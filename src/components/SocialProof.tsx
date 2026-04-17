@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import carlosPhoto from "@/assets/testimonial-carlos.jpg";
+import anaPhoto from "@/assets/testimonial-ana.jpg";
+import rafaelPhoto from "@/assets/testimonial-rafael.jpg";
 
 const stats = [
   { value: "+50", label: "Unidades em operação" },
@@ -15,7 +18,7 @@ const testimonials = [
     author: "Carlos M.",
     role: "Licenciado ALMO • Manaus/AM",
     since: "Unidade aberta há 8 meses",
-    color: "#425CC7",
+    photo: carlosPhoto,
   },
   {
     quote:
@@ -23,7 +26,7 @@ const testimonials = [
     author: "Ana L.",
     role: "Licenciada ALMO • Belém/PA",
     since: "Unidade aberta há 11 meses",
-    color: "#6FCFEB",
+    photo: anaPhoto,
   },
   {
     quote:
@@ -31,19 +34,9 @@ const testimonials = [
     author: "Rafael S.",
     role: "Síndico • Porto Velho/RO",
     since: "Unidade aberta há 6 meses",
-    color: "#22C55E",
+    photo: rafaelPhoto,
   },
 ];
-
-function getInitials(name: string) {
-  return name
-    .replace(/\./g, "")
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((p) => p[0]?.toUpperCase())
-    .join("");
-}
 
 export default function SocialProof() {
   return (
@@ -102,13 +95,14 @@ export default function SocialProof() {
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-3">
-                <div
-                  aria-hidden
-                  className="w-11 h-11 rounded-full flex items-center justify-center font-display font-bold text-white text-sm shrink-0"
-                  style={{ backgroundColor: t.color }}
-                >
-                  {getInitials(t.author)}
-                </div>
+                <img
+                  src={t.photo}
+                  alt={`Foto de ${t.author}`}
+                  loading="lazy"
+                  width={44}
+                  height={44}
+                  className="w-11 h-11 rounded-full object-cover shrink-0 border-2 border-border"
+                />
                 <div className="min-w-0">
                   <div className="font-display font-bold text-foreground leading-tight">
                     {t.author}
