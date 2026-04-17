@@ -6,12 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import almoIsotipo from "@/assets/almo-isotipo-white.png";
 
 const navItems = [
-  { label: "Início", href: "/" },
-  { label: "Soluções", href: "/#solucoes" },
   { label: "Como funciona", href: "/#como-funciona" },
-  { label: "Para investidores", href: "/#investidores" },
+  { label: "Números", href: "/#numeros" },
+  { label: "Dúvidas", href: "/#duvidas" },
   { label: "Blog", href: "/blog" },
-  { label: "Contato", href: "/#contato" },
 ];
 
 const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre a ALMO.";
