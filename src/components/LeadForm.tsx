@@ -180,9 +180,10 @@ export default function LeadForm() {
                     initial={{ scale: 0, rotate: -90 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
-                    className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6"
+                    className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
+                    style={{ backgroundColor: "hsl(142 76% 92%)" }}
                   >
-                    <CheckCircle2 className="text-green-600" size={56} strokeWidth={2.5} />
+                    <CheckCircle2 size={56} strokeWidth={2.5} style={{ color: "hsl(142 71% 35%)" }} />
                   </motion.div>
                   <motion.h3
                     initial={{ opacity: 0, y: 10 }}
