@@ -13,21 +13,37 @@ const testimonials = [
     quote:
       "Em 4 meses já recuperei boa parte do investimento. O suporte da ALMO é o que faz a diferença — sempre que precisei, atenderam rápido.",
     author: "Carlos M.",
-    role: "Licenciado ALMO • São Paulo",
+    role: "Licenciado ALMO • Manaus/AM",
+    since: "Unidade aberta há 8 meses",
+    color: "#425CC7",
   },
   {
     quote:
       "Operação muito mais simples do que eu imaginava. Faço a reposição 2x por semana e o sistema cuida do resto. Já estou planejando a 2ª unidade.",
     author: "Ana L.",
-    role: "Licenciada ALMO • Curitiba",
+    role: "Licenciada ALMO • Belém/PA",
+    since: "Unidade aberta há 11 meses",
+    color: "#6FCFEB",
   },
   {
     quote:
       "Os moradores adoraram. Como síndico, foi a melhor decisão — zero custo pro condomínio e muita conveniência pros nossos moradores.",
     author: "Rafael S.",
-    role: "Síndico • Belo Horizonte",
+    role: "Síndico • Porto Velho/RO",
+    since: "Unidade aberta há 6 meses",
+    color: "#22C55E",
   },
 ];
+
+function getInitials(name: string) {
+  return name
+    .replace(/\./g, "")
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0]?.toUpperCase())
+    .join("");
+}
 
 export default function SocialProof() {
   return (
@@ -85,9 +101,21 @@ export default function SocialProof() {
               <p className="text-foreground mb-6 leading-relaxed flex-1">
                 "{t.quote}"
               </p>
-              <div>
-                <div className="font-display font-bold text-foreground">{t.author}</div>
-                <div className="text-muted-foreground text-sm">{t.role}</div>
+              <div className="flex items-center gap-3">
+                <div
+                  aria-hidden
+                  className="w-11 h-11 rounded-full flex items-center justify-center font-display font-bold text-white text-sm shrink-0"
+                  style={{ backgroundColor: t.color }}
+                >
+                  {getInitials(t.author)}
+                </div>
+                <div className="min-w-0">
+                  <div className="font-display font-bold text-foreground leading-tight">
+                    {t.author}
+                  </div>
+                  <div className="text-muted-foreground text-sm leading-tight">{t.role}</div>
+                  <div className="text-xs text-primary font-semibold mt-0.5">{t.since}</div>
+                </div>
               </div>
             </motion.div>
           ))}
