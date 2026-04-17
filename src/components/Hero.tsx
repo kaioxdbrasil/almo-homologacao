@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/hero-market.jpg";
@@ -100,6 +101,17 @@ export default function Hero() {
 
             <p className="text-xs text-white/60 mt-4">
               Resposta em até 1 dia útil • Sem compromisso
+            </p>
+
+            <p className="mt-3 text-white/50" style={{ fontSize: "13px" }}>
+              É síndico ou gestor de empresa?{" "}
+              <Link
+                to="/condominios"
+                className="underline underline-offset-2 hover:opacity-90 transition-opacity"
+                style={{ color: "#6FCFEB" }}
+              >
+                Veja como ter uma Almo no seu espaço →
+              </Link>
             </p>
           </motion.div>
 
