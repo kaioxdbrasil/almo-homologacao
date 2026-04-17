@@ -1,41 +1,69 @@
-import { motion } from "framer-motion";
-
-// TODO: Substituir por logos reais (PNG/SVG) quando recebidos.
-// Sugestão: criar pasta src/assets/partners/ e importar como ES6 modules.
+// Logos puxados via Google Favicon API (s=128 = alta resolução).
+// Para substituir por arquivos próprios: salvar em src/assets/partners/ e trocar `logo` pelo import.
 const partners = [
-  { name: "Ambev", category: "Fornecedor" },
-  { name: "Coca-Cola", category: "Fornecedor" },
-  { name: "Nestlé", category: "Fornecedor" },
-  { name: "PepsiCo", category: "Fornecedor" },
-  { name: "PagSeguro", category: "Pagamento" },
-  { name: "Mercado Pago", category: "Pagamento" },
+  { name: "Ambev", domain: "ambev.com.br" },
+  { name: "Coca-Cola", domain: "cocacolabrasil.com.br" },
+  { name: "Nestlé", domain: "nestle.com.br" },
+  { name: "PepsiCo", domain: "pepsico.com.br" },
+  { name: "PagSeguro", domain: "pagseguro.uol.com.br" },
+  { name: "Mercado Pago", domain: "mercadopago.com.br" },
+  { name: "Stone", domain: "stone.com.br" },
+  { name: "Cielo", domain: "cielo.com.br" },
 ];
 
+const getLogo = (domain: string) =>
+  `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+
 export default function TrustBar() {
+  // Duplicamos a lista para o efeito de loop infinito sem "salto"
+  const loop = [...partners, ...partners];
+
   return (
-    <section className="bg-card border-y border-border py-8">
-      <div className="container mx-auto px-6 md:px-12 lg:px-16">
-        <p className="text-center text-xs font-bold tracking-widest text-muted-foreground uppercase mb-6">
+    <section className="bg-card border-y border-border py-10 overflow-hidden">
+      <div className="container mx-auto mb-6">
+        <p className="text-center text-xs font-bold tracking-widest text-muted-foreground uppercase">
           Parceiros e fornecedores oficiais
         </p>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12"
-        >
-          {partners.map((p) => (
+      </div>
+
+      <div
+        className="relative w-full"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        }}
+      >
+        <div className="flex w-max animate-marquee gap-12 md:gap-16">
+          {loop.map((p, i) => (
             <div
-              key={p.name}
-              className="flex items-center justify-center h-10 px-4 rounded-md bg-background border border-border opacity-70 hover:opacity-100 transition-opacity"
+              key={`${p.name}-${i}`}
+              aria-label={p.name}
+              className="group flex h-16 w-32 shrink-0 items-center justify-center rounded-lg bg-background border border-border px-4"
             >
-              <span className="font-display font-bold text-sm md:text-base text-muted-foreground">
-                {p.name}
-              </span>
+              <img
+                src={getLogo(p.domain)}
+                alt={`Logo ${p.name}`}
+                loading="lazy"
+                className="max-h-10 max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                onError={(e) => {
+                  // Fallback: placeholder cinza com nome se a API falhar
+                  const target = e.currentTarget;
+                  target.style.display = "none";
+                  const parent = target.parentElement;
+                  if (parent && !parent.querySelector(".logo-fallback")) {
+                    const fb = document.createElement("span");
+                    fb.className =
+                      "logo-fallback font-display font-bold text-sm text-muted-foreground";
+                    fb.textContent = p.name;
+                    parent.appendChild(fb);
+                  }
+                }}
+              />
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
