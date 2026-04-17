@@ -3,8 +3,6 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import HowItWorks from "@/components/HowItWorks";
 import SocialProof from "@/components/SocialProof";
-import JourneySplit from "@/components/JourneySplit";
-import Formats from "@/components/Formats";
 import Differentials from "@/components/Differentials";
 import Comparison from "@/components/Comparison";
 import Objections from "@/components/Objections";
@@ -20,9 +18,7 @@ export default function Index() {
       <main>
         <Hero />
         <TrustBar />
-        <JourneySplit />
         <HowItWorks />
-        <Formats />
         <SocialProof />
         <Differentials />
         <Comparison />
