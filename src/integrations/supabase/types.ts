@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          cidade: string
+          created_at: string
+          id: string
+          nome: string
+          origem: string | null
+          tem_condominio: boolean
+          whatsapp: string
+        }
+        Insert: {
+          cidade: string
+          created_at?: string
+          id?: string
+          nome: string
+          origem?: string | null
+          tem_condominio?: boolean
+          whatsapp: string
+        }
+        Update: {
+          cidade?: string
+          created_at?: string
+          id?: string
+          nome?: string
+          origem?: string | null
+          tem_condominio?: boolean
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
