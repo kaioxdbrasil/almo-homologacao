@@ -42,13 +42,13 @@ export default function Hero() {
             </div>
 
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground leading-[1.15] mb-5">
-              Fature até{" "}
-              <span className="text-secondary">R$ 180 mil</span>{" "}
-              por ano com um minimercado autônomo
+              Leve um{" "}
+              <span className="text-secondary">mercado autônomo</span>{" "}
+              para seu espaço ou comece um negócio lucrativo
             </h1>
 
             <p className="text-base md:text-lg text-primary-foreground/80 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Sem funcionário, sem ponto comercial. Funcionando 24h em condomínios — com a estrutura, sistema e suporte da ALMO.
+              Condomínios, empresas ou empreendedores — escolha como você quer usar a ALMO. Sem funcionário, funcionando 24h.
             </p>
 
             {/* Trust badges */}
@@ -84,7 +84,7 @@ export default function Hero() {
                 className="px-6 h-12 rounded-xl border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground font-bold"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  Falar com especialista
+                  Quero um no meu condomínio ou empresa
                 </a>
               </Button>
             </motion.div>
