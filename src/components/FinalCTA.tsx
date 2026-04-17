@@ -10,26 +10,41 @@ export default function FinalCTA() {
   };
 
   return (
-    <section id="contato" className="section-padding">
-      <div className="container mx-auto">
+    <section
+      id="contato"
+      className="relative w-full py-14 md:py-20 overflow-hidden"
+      style={{ backgroundColor: "#425CC7" }}
+    >
+      {/* Dot grid pattern — consistente com o hero */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+
+      <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-primary rounded-3xl p-10 md:p-16 text-center text-primary-foreground"
+          className="text-center text-white max-w-2xl mx-auto"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 leading-tight">
             Pronto pra ter seu próprio minimercado?
           </h2>
-          <p className="text-lg opacity-90 mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-white/90 mb-8">
             +50 pessoas já estão faturando com o modelo ALMO. Você pode ser a próxima.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
               size="lg"
-              variant="secondary"
               onClick={scrollToForm}
-              className="text-base font-bold h-12 px-8"
+              className="text-base font-bold h-12 px-8 bg-white hover:bg-white/90"
+              style={{ color: "#425CC7" }}
             >
               Quero começar agora
             </Button>
@@ -37,7 +52,7 @@ export default function FinalCTA() {
               size="lg"
               variant="outline"
               asChild
-              className="text-base font-bold h-12 px-8 border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              className="text-base font-bold h-12 px-8 border-2 border-white bg-transparent text-white hover:bg-white/10 hover:text-white"
             >
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 Falar no WhatsApp
