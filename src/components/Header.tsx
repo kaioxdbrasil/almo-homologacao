@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import almoIsotipo from "@/assets/almo-isotipo-white.png";
-import almoIsotipoDark from "@/assets/almo-isotipo.png";
+import almoLogo from "@/assets/almo-logo.png";
 
 const navItems = [
   { label: "Como funciona", href: "/#como-funciona" },
