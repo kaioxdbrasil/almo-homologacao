@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/hero-market.jpg";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero levar a ALMO para meu condomínio ou empresa!";
+const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero abrir um minimercado autônomo ALMO!";
 
 const trustItems = [
   "Sem funcionário",
@@ -37,18 +37,18 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-4 py-1.5 mb-5">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
               <span className="text-xs font-semibold text-primary-foreground/90">
-                +20 unidades operando na região Norte
+                +50 unidades já operando no Brasil
               </span>
             </div>
 
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground leading-[1.15] mb-5">
-              Leve um{" "}
-              <span className="text-secondary">mercado autônomo</span>{" "}
-              para seu espaço ou comece um negócio lucrativo
+              Fature de{" "}
+              <span className="text-secondary">R$ 8 mil a R$ 19 mil</span>{" "}
+              por mês com um minimercado autônomo
             </h1>
 
             <p className="text-base md:text-lg text-primary-foreground/80 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Condomínios, empresas ou empreendedores — escolha como você quer usar a ALMO. Sem funcionário, funcionando 24h.
+              Sem funcionário, sem ponto comercial. Funcionando 24h em condomínios — com a estrutura, sistema e suporte da ALMO.
             </p>
 
             {/* Trust badges */}
@@ -84,7 +84,7 @@ export default function Hero() {
                 className="px-6 h-12 rounded-xl border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground font-bold"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  Quero um no meu condomínio ou empresa
+                  Falar com especialista
                 </a>
               </Button>
             </motion.div>
