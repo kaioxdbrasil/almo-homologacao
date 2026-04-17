@@ -14,6 +14,7 @@ const DEFAULT_NAV: NavItem[] = [
   { label: "Como funciona", href: "/#como-funciona" },
   { label: "Números", href: "/#numeros" },
   { label: "Dúvidas", href: "/#duvidas" },
+  { label: "Para condomínios", href: "/condominios" },
   { label: "Blog", href: "/blog" },
 ];
 
