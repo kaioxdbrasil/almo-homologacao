@@ -1,10 +1,14 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
 import HowItWorks from "@/components/HowItWorks";
 import BusinessNumbers from "@/components/BusinessNumbers";
+import AppShowcase from "@/components/AppShowcase";
 import SocialProof from "@/components/SocialProof";
+import Segments from "@/components/Segments";
 import ForWho from "@/components/ForWho";
 import Differentials from "@/components/Differentials";
+import Comparison from "@/components/Comparison";
 import Objections from "@/components/Objections";
 import LeadForm from "@/components/LeadForm";
 import FinalCTA from "@/components/FinalCTA";
@@ -17,11 +21,15 @@ export default function Index() {
       <Header />
       <main>
         <Hero />
+        <TrustBar />
         <HowItWorks />
         <BusinessNumbers />
+        <AppShowcase />
         <SocialProof />
+        <Segments />
         <ForWho />
         <Differentials />
+        <Comparison />
         <Objections />
         <LeadForm />
         <FinalCTA />

@@ -18,27 +18,33 @@ export type Database = {
         Row: {
           cidade: string
           created_at: string
+          faixa_investimento: string | null
           id: string
           nome: string
           origem: string | null
+          prazo_inicio: string | null
           tem_condominio: boolean
           whatsapp: string
         }
         Insert: {
           cidade: string
           created_at?: string
+          faixa_investimento?: string | null
           id?: string
           nome: string
           origem?: string | null
+          prazo_inicio?: string | null
           tem_condominio?: boolean
           whatsapp: string
         }
         Update: {
           cidade?: string
           created_at?: string
+          faixa_investimento?: string | null
           id?: string
           nome?: string
           origem?: string | null
+          prazo_inicio?: string | null
           tem_condominio?: boolean
           whatsapp?: string
         }

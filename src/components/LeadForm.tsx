@@ -10,24 +10,21 @@ import { Loader2, ShieldCheck } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5511999999999";
 
+const FAIXAS = ["Até R$ 30k", "R$ 30k a R$ 50k", "R$ 50k a R$ 80k", "Acima de R$ 80k"] as const;
+const PRAZOS = ["Imediato", "1 a 3 meses", "3 a 6 meses", "Estou pesquisando"] as const;
+
 const leadSchema = z.object({
-  nome: z
-    .string()
-    .trim()
-    .min(2, "Informe seu nome completo")
-    .max(100, "Nome muito longo"),
+  nome: z.string().trim().min(2, "Informe seu nome completo").max(100, "Nome muito longo"),
   whatsapp: z
     .string()
     .trim()
     .min(10, "Informe um WhatsApp válido (com DDD)")
     .max(20, "WhatsApp inválido")
     .regex(/^[\d\s()+-]+$/, "Use apenas números"),
-  cidade: z
-    .string()
-    .trim()
-    .min(2, "Informe sua cidade")
-    .max(100, "Cidade muito longa"),
+  cidade: z.string().trim().min(2, "Informe sua cidade").max(100, "Cidade muito longa"),
   tem_condominio: z.boolean(),
+  faixa_investimento: z.enum(FAIXAS, { message: "Selecione uma faixa" }),
+  prazo_inicio: z.enum(PRAZOS, { message: "Selecione um prazo" }),
 });
 
 type LeadInput = z.infer<typeof leadSchema>;
@@ -35,11 +32,20 @@ type LeadInput = z.infer<typeof leadSchema>;
 export default function LeadForm() {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState<LeadInput>({
+  const [form, setForm] = useState<{
+    nome: string;
+    whatsapp: string;
+    cidade: string;
+    tem_condominio: boolean;
+    faixa_investimento: typeof FAIXAS[number] | "";
+    prazo_inicio: typeof PRAZOS[number] | "";
+  }>({
     nome: "",
     whatsapp: "",
     cidade: "",
     tem_condominio: false,
+    faixa_investimento: "",
+    prazo_inicio: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof LeadInput, string>>>({});
 
@@ -65,6 +71,8 @@ export default function LeadForm() {
         whatsapp: parsed.data.whatsapp,
         cidade: parsed.data.cidade,
         tem_condominio: parsed.data.tem_condominio,
+        faixa_investimento: parsed.data.faixa_investimento,
+        prazo_inicio: parsed.data.prazo_inicio,
         origem: "landing_page",
       });
 
@@ -75,17 +83,25 @@ export default function LeadForm() {
         description: "Estamos te redirecionando para o WhatsApp...",
       });
 
-      // Redireciona pro WhatsApp com mensagem pré-preenchida
       const msg = encodeURIComponent(
         `Olá! Sou ${parsed.data.nome}, de ${parsed.data.cidade}. ` +
-          `${parsed.data.tem_condominio ? "Já tenho um condomínio em mente" : "Ainda não tenho um condomínio"}. ` +
+          `${parsed.data.tem_condominio ? "Já tenho um condomínio em mente. " : "Ainda não tenho um condomínio. "}` +
+          `Faixa de investimento: ${parsed.data.faixa_investimento}. ` +
+          `Prazo: ${parsed.data.prazo_inicio}. ` +
           `Quero abrir um minimercado autônomo ALMO!`
       );
       setTimeout(() => {
         window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
       }, 800);
 
-      setForm({ nome: "", whatsapp: "", cidade: "", tem_condominio: false });
+      setForm({
+        nome: "",
+        whatsapp: "",
+        cidade: "",
+        tem_condominio: false,
+        faixa_investimento: "",
+        prazo_inicio: "",
+      });
     } catch (err) {
       console.error("Erro ao salvar lead:", err);
       toast({
@@ -101,13 +117,13 @@ export default function LeadForm() {
   return (
     <section id="quero-comecar" className="section-padding bg-primary">
       <div className="container mx-auto max-w-5xl">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Left copy */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-primary-foreground"
+            className="text-primary-foreground md:sticky md:top-24"
           >
             <span className="inline-block text-xs font-bold tracking-widest text-secondary uppercase mb-3">
               Próximo passo
@@ -116,7 +132,7 @@ export default function LeadForm() {
               Receba a apresentação completa do modelo ALMO
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-6">
-              Em até 1 dia útil, um especialista entra em contato com você no WhatsApp e te envia:
+              Em até 1 dia útil, um especialista entra em contato no seu WhatsApp e te envia:
             </p>
             <ul className="space-y-2 text-primary-foreground/90">
               <li className="flex items-start gap-2">
@@ -147,9 +163,7 @@ export default function LeadForm() {
             className="bg-background rounded-2xl p-6 md:p-8 shadow-soft space-y-4"
           >
             <div>
-              <Label htmlFor="nome" className="font-semibold">
-                Nome completo
-              </Label>
+              <Label htmlFor="nome" className="font-semibold">Nome completo</Label>
               <Input
                 id="nome"
                 value={form.nome}
@@ -159,15 +173,11 @@ export default function LeadForm() {
                 disabled={loading}
                 maxLength={100}
               />
-              {errors.nome && (
-                <p className="text-destructive text-xs mt-1">{errors.nome}</p>
-              )}
+              {errors.nome && <p className="text-destructive text-xs mt-1">{errors.nome}</p>}
             </div>
 
             <div>
-              <Label htmlFor="whatsapp" className="font-semibold">
-                WhatsApp (com DDD)
-              </Label>
+              <Label htmlFor="whatsapp" className="font-semibold">WhatsApp (com DDD)</Label>
               <Input
                 id="whatsapp"
                 value={form.whatsapp}
@@ -177,15 +187,11 @@ export default function LeadForm() {
                 disabled={loading}
                 maxLength={20}
               />
-              {errors.whatsapp && (
-                <p className="text-destructive text-xs mt-1">{errors.whatsapp}</p>
-              )}
+              {errors.whatsapp && <p className="text-destructive text-xs mt-1">{errors.whatsapp}</p>}
             </div>
 
             <div>
-              <Label htmlFor="cidade" className="font-semibold">
-                Cidade / Estado
-              </Label>
+              <Label htmlFor="cidade" className="font-semibold">Cidade / Estado</Label>
               <Input
                 id="cidade"
                 value={form.cidade}
@@ -195,15 +201,61 @@ export default function LeadForm() {
                 disabled={loading}
                 maxLength={100}
               />
-              {errors.cidade && (
-                <p className="text-destructive text-xs mt-1">{errors.cidade}</p>
+              {errors.cidade && <p className="text-destructive text-xs mt-1">{errors.cidade}</p>}
+            </div>
+
+            {/* Faixa de investimento */}
+            <div>
+              <Label className="font-semibold mb-2 block">Quanto você pode investir?</Label>
+              <div className="grid grid-cols-2 gap-2">
+                {FAIXAS.map((faixa) => (
+                  <button
+                    key={faixa}
+                    type="button"
+                    onClick={() => setForm({ ...form, faixa_investimento: faixa })}
+                    disabled={loading}
+                    className={`h-11 rounded-md border-2 font-semibold text-xs transition-colors px-2 ${
+                      form.faixa_investimento === faixa
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-input bg-background text-foreground hover:border-primary/50"
+                    }`}
+                  >
+                    {faixa}
+                  </button>
+                ))}
+              </div>
+              {errors.faixa_investimento && (
+                <p className="text-destructive text-xs mt-1">{errors.faixa_investimento}</p>
+              )}
+            </div>
+
+            {/* Prazo */}
+            <div>
+              <Label className="font-semibold mb-2 block">Quando pretende começar?</Label>
+              <div className="grid grid-cols-2 gap-2">
+                {PRAZOS.map((prazo) => (
+                  <button
+                    key={prazo}
+                    type="button"
+                    onClick={() => setForm({ ...form, prazo_inicio: prazo })}
+                    disabled={loading}
+                    className={`h-11 rounded-md border-2 font-semibold text-xs transition-colors px-2 ${
+                      form.prazo_inicio === prazo
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-input bg-background text-foreground hover:border-primary/50"
+                    }`}
+                  >
+                    {prazo}
+                  </button>
+                ))}
+              </div>
+              {errors.prazo_inicio && (
+                <p className="text-destructive text-xs mt-1">{errors.prazo_inicio}</p>
               )}
             </div>
 
             <div>
-              <Label className="font-semibold mb-2 block">
-                Já tem um condomínio em mente?
-              </Label>
+              <Label className="font-semibold mb-2 block">Já tem um condomínio em mente?</Label>
               <div className="flex gap-3">
                 <button
                   type="button"
@@ -232,12 +284,7 @@ export default function LeadForm() {
               </div>
             </div>
 
-            <Button
-              type="submit"
-              size="lg"
-              disabled={loading}
-              className="w-full h-12 font-bold text-base"
-            >
+            <Button type="submit" size="lg" disabled={loading} className="w-full h-12 font-bold text-base">
               {loading ? (
                 <>
                   <Loader2 className="animate-spin" />
