@@ -40,7 +40,7 @@ export default function Header() {
     }
   };
 
-  const logoSrc = scrolled ? almoIsotipoDark : almoIsotipo;
+  const logoSrc = scrolled ? almoLogo : almoIsotipo;
   const textColorClass = scrolled ? "text-foreground/80 hover:text-foreground" : "text-primary-foreground/80 hover:text-primary-foreground";
   const mobileMenuBg = scrolled ? "bg-background border-b" : "bg-primary border-b border-primary/80";
   const buttonVariant = scrolled ? "outline" : "default";
