@@ -17,11 +17,20 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-24 pb-12 overflow-hidden bg-primary">
-      {/* Subtle brand pattern */}
+    <section className="relative flex items-center pt-24 pb-6 overflow-hidden bg-[#425CC7]">
+      {/* Dot grid pattern */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.15]"
+        style={{
+          backgroundImage: `radial-gradient(circle, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '24px 24px'
+        }}
+      />
+      
+      {/* Subtle brand pattern overlays */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-primary-foreground/[0.04] blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-secondary/[0.08] blur-3xl" />
+        <div className="absolute top-24 right-10 w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
+        <div className="absolute -bottom-10 -left-20 w-[400px] h-[400px] rounded-full bg-[#6FCFEB]/[0.06] blur-3xl" />
       </div>
 
       <div className="container mx-auto relative z-10">
@@ -34,28 +43,28 @@ export default function Hero() {
             className="text-center lg:text-left"
           >
             {/* Tag de prova */}
-            <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-4 py-1.5 mb-5">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              <span className="text-xs font-semibold text-primary-foreground/90">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-5">
+              <span className="w-2 h-2 rounded-full bg-[#6FCFEB] animate-pulse" />
+              <span className="text-xs font-semibold text-white/90">
                 +20 unidades operando na região Norte
               </span>
             </div>
 
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground leading-[1.15] mb-5">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15] mb-5">
               Fature até{" "}
-              <span className="text-secondary">R$ 180 mil</span>{" "}
+              <span className="text-[#6FCFEB]">R$ 180 mil</span>{" "}
               por ano com um minimercado autônomo
             </h1>
 
-            <p className="text-base md:text-lg text-primary-foreground/80 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base md:text-lg text-white/80 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               Sem funcionário, sem ponto comercial. Funcionando 24h em condomínios — com a estrutura, sistema e suporte da ALMO.
             </p>
 
             {/* Trust badges */}
             <ul className="flex flex-wrap gap-x-5 gap-y-2 justify-center lg:justify-start mb-7">
               {trustItems.map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-primary-foreground/90">
-                  <CheckCircle2 className="text-secondary" size={18} />
+                <li key={item} className="flex items-center gap-2 text-sm text-white/90">
+                  <CheckCircle2 className="text-[#6FCFEB]" size={18} />
                   {item}
                 </li>
               ))}
@@ -68,11 +77,11 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
-              <div className="rounded-xl bg-gradient-to-r from-secondary to-primary-foreground p-[2px]">
+              <div className="rounded-xl bg-gradient-to-r from-[#6FCFEB] to-white p-[2px]">
                 <Button
                   size="lg"
                   onClick={scrollToForm}
-                  className="px-6 h-12 rounded-[10px] bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold w-full sm:w-auto"
+                  className="px-6 h-12 rounded-[10px] bg-white text-[#425CC7] hover:bg-white/90 font-bold w-full sm:w-auto"
                 >
                   Quero abrir um minimercado
                 </Button>
@@ -81,7 +90,7 @@ export default function Hero() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="px-6 h-12 rounded-xl border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground font-bold"
+                className="px-6 h-12 rounded-xl border-2 border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   Falar com especialista
@@ -89,7 +98,7 @@ export default function Hero() {
               </Button>
             </motion.div>
 
-            <p className="text-xs text-primary-foreground/60 mt-4">
+            <p className="text-xs text-white/60 mt-4">
               Resposta em até 1 dia útil • Sem compromisso
             </p>
           </motion.div>
@@ -108,7 +117,7 @@ export default function Hero() {
                 className="w-full h-full object-cover"
                 loading="eager"
               />
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-primary/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#425CC7]/30 to-transparent" />
             </div>
           </motion.div>
         </div>
