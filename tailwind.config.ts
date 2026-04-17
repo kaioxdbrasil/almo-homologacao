@@ -21,8 +21,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Space Grotesk'", "sans-serif"],
-        body: ["'Inter'", "sans-serif"],
+        display: ["'Raleway'", "sans-serif"],
+        body: ["'Raleway'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
