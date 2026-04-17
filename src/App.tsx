@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import HonestMarket from "./pages/HonestMarket";
 import AlmoGo from "./pages/AlmoGo";
+import Condominios from "./pages/Condominios";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Links from "./pages/Links";
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/almo-honest-market" element={<HonestMarket />} />
             <Route path="/almo-go" element={<AlmoGo />} />
+            <Route path="/condominios" element={<Condominios />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/links" element={<Links />} />
