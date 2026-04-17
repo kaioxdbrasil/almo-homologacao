@@ -16,6 +16,7 @@ const DEFAULT_NAV: NavItem[] = [
   { label: "Dúvidas", href: "/#duvidas" },
   { label: "Para condomínios", href: "/condominios" },
   { label: "Blog", href: "/blog" },
+  { label: "Sobre", href: "/sobre" },
 ];
 
 const CONDOS_NAV: NavItem[] = [
@@ -24,6 +25,7 @@ const CONDOS_NAV: NavItem[] = [
   { label: "Como funciona", href: "/condominios#como-funciona" },
   { label: "Dúvidas", href: "/condominios#faq" },
   { label: "Blog", href: "/blog" },
+  { label: "Sobre", href: "/sobre" },
 ];
 
 const DEFAULT_WHATSAPP =
