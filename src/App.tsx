@@ -7,6 +7,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import HonestMarket from "./pages/HonestMarket";
 import AlmoGo from "./pages/AlmoGo";
+import Empreendedor from "./pages/Empreendedor";
+import Condominio from "./pages/Condominio";
+import Empresa from "./pages/Empresa";
+import Sobre from "./pages/Sobre";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Links from "./pages/Links";
@@ -25,6 +29,10 @@ const App = () => (
           <AccessibilityWidget />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/empreendedor" element={<Empreendedor />} />
+            <Route path="/condominio" element={<Condominio />} />
+            <Route path="/empresa" element={<Empresa />} />
+            <Route path="/sobre" element={<Sobre />} />
             <Route path="/almo-honest-market" element={<HonestMarket />} />
             <Route path="/almo-go" element={<AlmoGo />} />
             <Route path="/blog" element={<Blog />} />
