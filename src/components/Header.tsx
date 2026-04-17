@@ -14,6 +14,7 @@ const DEFAULT_NAV: NavItem[] = [
   { label: "Como funciona", href: "/#como-funciona" },
   { label: "Números", href: "/#numeros" },
   { label: "Dúvidas", href: "/#duvidas" },
+  { label: "Para condomínios", href: "/condominios" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -93,11 +94,11 @@ export default function Header({ variant = "default" }: HeaderProps) {
 
   const logoSrc = scrolled ? almoLogo : almoIsotipo;
   const textColorClass = scrolled
-    ? "text-foreground/80 hover:text-foreground"
-    : "text-primary-foreground/80 hover:text-primary-foreground";
+    ? "text-foreground/80 hover:text-[#6FCFEB]"
+    : "text-primary-foreground/80 hover:text-[#6FCFEB]";
   const activeColorClass = scrolled
-    ? "text-primary font-semibold"
-    : "text-secondary font-semibold";
+    ? "text-primary font-semibold hover:text-[#6FCFEB]"
+    : "text-secondary font-semibold hover:text-[#6FCFEB]";
   const mobileMenuBg = scrolled
     ? "bg-background border-b"
     : "bg-primary border-b border-primary/80";
