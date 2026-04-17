@@ -37,14 +37,14 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-4 py-1.5 mb-5">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
               <span className="text-xs font-semibold text-primary-foreground/90">
-                +50 unidades já operando no Brasil
+                +20 unidades operando na região Norte
               </span>
             </div>
 
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground leading-[1.15] mb-5">
-              Fature de{" "}
-              <span className="text-secondary">R$ 8 mil a R$ 19 mil</span>{" "}
-              por mês com um minimercado autônomo
+              Fature até{" "}
+              <span className="text-secondary">R$ 180 mil</span>{" "}
+              por ano com um minimercado autônomo
             </h1>
 
             <p className="text-base md:text-lg text-primary-foreground/80 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">

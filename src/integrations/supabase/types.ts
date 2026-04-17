@@ -22,6 +22,7 @@ export type Database = {
           id: string
           nome: string
           origem: string | null
+          perfil: string | null
           prazo_inicio: string | null
           tem_condominio: boolean
           whatsapp: string
@@ -33,6 +34,7 @@ export type Database = {
           id?: string
           nome: string
           origem?: string | null
+          perfil?: string | null
           prazo_inicio?: string | null
           tem_condominio?: boolean
           whatsapp: string
@@ -44,6 +46,7 @@ export type Database = {
           id?: string
           nome?: string
           origem?: string | null
+          perfil?: string | null
           prazo_inicio?: string | null
           tem_condominio?: boolean
           whatsapp?: string
