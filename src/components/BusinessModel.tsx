@@ -62,15 +62,9 @@ export default function BusinessModel() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="inline-block text-xs font-bold tracking-widest text-[#425CC7] uppercase mb-3">
-            Como funciona
-          </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Como funciona o mercadinho da Almo
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+            Como funciona a Almo
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Simples, rápido e sem complicação.
-          </p>
         </motion.div>
 
         {/* 2 colunas: imagem + passos */}
