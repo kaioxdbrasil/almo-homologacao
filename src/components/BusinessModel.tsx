@@ -156,7 +156,3 @@ export default function BusinessModel() {
     </section>
   );
 }
-      </div>
-    </section>
-  );
-}
