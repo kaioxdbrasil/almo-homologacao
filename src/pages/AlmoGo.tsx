@@ -93,7 +93,36 @@ export default function AlmoGo() {
           </div>
         </section>
 
-        <FinalCTA 
+        {/* Placeholder de depoimentos - oculto até ter conteúdo real */}
+        <section className="section-padding bg-card hidden" style={{ display: 'none' }}>
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+              O que dizem nossos clientes
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {[1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="rounded-2xl p-8 text-center border-2 border-dashed border-[#d4d4d0]"
+                  style={{ backgroundColor: '#f4f4f2' }}
+                >
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    Depoimento real em breve — licenciada com Almo GO instalada em condomínio em Rio Branco/AC.
+                  </p>
+                  <p className="text-xs text-muted-foreground/70">
+                    Aguardando coleta do depoimento real.
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <FinalCTA
           title="Pronto pra ter sua própria Almo GO?"
           subtitle="Instale uma geladeira inteligente autônoma no seu espaço. A partir de R$ 13.970 com tudo incluído."
           variant="almogo"
