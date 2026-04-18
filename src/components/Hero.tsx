@@ -84,7 +84,7 @@ export default function Hero() {
                   onClick={scrollToForm}
                   className="px-6 h-12 rounded-[10px] bg-white text-[#425CC7] hover:bg-white/90 font-bold w-full sm:w-auto"
                 >
-                  Quero ser franquiado
+                  Quero ser licenciado
                 </Button>
               </div>
               <Button
