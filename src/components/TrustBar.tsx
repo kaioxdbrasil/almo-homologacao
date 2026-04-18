@@ -4,11 +4,8 @@ const partners = [
   { name: "Ambev", domain: "ambev.com.br" },
   { name: "Coca-Cola", domain: "cocacolabrasil.com.br" },
   { name: "Nestlé", domain: "nestle.com.br" },
-  { name: "PepsiCo", domain: "pepsico.com.br" },
-  { name: "PagSeguro", domain: "pagseguro.uol.com.br" },
   { name: "Mercado Pago", domain: "mercadopago.com.br" },
   { name: "Stone", domain: "stone.com.br" },
-  { name: "Cielo", domain: "cielo.com.br" },
 ];
 
 const getLogo = (domain: string) =>
@@ -40,7 +37,7 @@ export default function TrustBar() {
             <div
               key={`${p.name}-${i}`}
               aria-label={p.name}
-              className="group flex h-16 w-32 shrink-0 items-center justify-center rounded-lg bg-background border border-border px-4"
+              className="group flex h-16 w-32 shrink-0 items-center justify-center rounded-lg bg-background border border-border px-6"
             >
               <img
                 src={getLogo(p.domain)}
