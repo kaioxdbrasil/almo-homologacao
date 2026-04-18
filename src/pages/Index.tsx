@@ -4,7 +4,6 @@ import TrustBar from "@/components/TrustBar";
 import HowItWorks from "@/components/HowItWorks";
 import SocialProof from "@/components/SocialProof";
 import Differentials from "@/components/Differentials";
-import Comparison from "@/components/Comparison";
 import Objections from "@/components/Objections";
 import LeadForm from "@/components/LeadForm";
 import FinalCTA from "@/components/FinalCTA";
@@ -21,7 +20,6 @@ export default function Index() {
         <HowItWorks />
         <SocialProof />
         <Differentials />
-        <Comparison />
         <Objections />
         <LeadForm />
         <FinalCTA />
