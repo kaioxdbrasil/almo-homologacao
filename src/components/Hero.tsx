@@ -84,7 +84,7 @@ export default function Hero() {
                   onClick={scrollToForm}
                   className="px-6 h-12 rounded-[10px] bg-white text-[#425CC7] hover:bg-white/90 font-bold w-full sm:w-auto"
                 >
-                  Quero abrir um minimercado
+                  Quero ser franquiado
                 </Button>
               </div>
               <Button
@@ -94,7 +94,7 @@ export default function Hero() {
                 className="px-6 h-12 rounded-xl border-2 border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  Falar com especialista
+                  Quero no meu condomínio
                 </a>
               </Button>
             </motion.div>
