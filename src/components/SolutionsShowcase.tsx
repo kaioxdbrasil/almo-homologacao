@@ -79,7 +79,7 @@ export default function SolutionsShowcase() {
       </div>
 
       {/* Seção 2 — Geladeira Autônoma */}
-      <div className="section-padding bg-muted/30">
+      <div className="section-padding">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Imagem aparece primeiro no mobile, à direita no desktop */}
