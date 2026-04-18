@@ -50,6 +50,17 @@ export default function AlmoGo() {
                     Quero na minha empresa
                   </a>
                 </Button>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {["✓ R$ 13.970 kit completo", "✓ R$ 297/mês mensalidade", "✓ Tudo incluído — sem surpresas"].map((pill) => (
+                    <span
+                      key={pill}
+                      className="px-3 py-1.5 rounded-full text-white text-[13px] font-medium"
+                      style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+                    >
+                      {pill}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }}>
                 <img src={fridgeImg} alt="ALMO GO - geladeira autônoma inteligente para empresas" className="rounded-2xl shadow-soft w-full" />
