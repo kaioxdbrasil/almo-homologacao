@@ -93,7 +93,11 @@ export default function AlmoGo() {
           </div>
         </section>
 
-        <FinalCTA />
+        <FinalCTA 
+          title="Pronto pra ter sua própria Almo GO?"
+          subtitle="Instale uma geladeira inteligente autônoma no seu espaço. A partir de R$ 13.970 com tudo incluído."
+          variant="almogo"
+        />
       </main>
       <Footer />
       <WhatsAppButton />
