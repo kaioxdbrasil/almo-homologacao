@@ -11,7 +11,7 @@ const benefits = [
   "Formato compacto, ideal para espaços reduzidos",
   "Produtos refrigerados e à temperatura ambiente",
   "Pagamento por app ou cartão",
-  "Reposição e manutenção incluídas",
+  "Suporte técnico e operacional incluso",
   "Dashboard de gestão em tempo real",
   "Sem custos fixos com pessoal",
 ];
