@@ -6,7 +6,6 @@ import SocialProof from "@/components/SocialProof";
 import Differentials from "@/components/Differentials";
 import Objections from "@/components/Objections";
 import LeadForm from "@/components/LeadForm";
-import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -22,7 +21,6 @@ export default function Index() {
         <Differentials />
         <Objections />
         <LeadForm />
-        <FinalCTA />
       </main>
       <Footer />
       <WhatsAppButton />
