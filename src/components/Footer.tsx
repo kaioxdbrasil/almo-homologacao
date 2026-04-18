@@ -36,7 +36,7 @@ export default function Footer() {
             <h4 className="font-display font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-sm opacity-70">
               <li>contato@almo.com.br</li>
-              <li>São Paulo, Brasil</li>
+              <li>Rio Branco, AC — Região Norte</li>
             </ul>
           </div>
         </div>
