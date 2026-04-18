@@ -39,10 +39,10 @@ export default function AlmoGo() {
                 </div>
                 <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight mb-6">
                   Geladeiras autônomas para{" "}
-                  <span className="text-gradient">empresas</span>
+                  <span className="text-gradient">empresas e condomínios</span>
                 </h1>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Conveniência inteligente onde seus colaboradores e clientes estão.
+                  Conveniência inteligente onde seus colaboradores ou moradores estão.
                   Compacta, eficiente e sem necessidade de operador.
                 </p>
                 <Button size="lg" asChild>
