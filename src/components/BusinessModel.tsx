@@ -121,22 +121,17 @@ export default function BusinessModel() {
                 transition={{ delay: i * 0.08 }}
                 className="flex items-start gap-4 group"
               >
-                {/* Número grande */}
+                {/* Ícone */}
                 <div className="shrink-0 relative">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#425CC7] to-[#6FCFEB] flex items-center justify-center shadow-md">
-                    <span className="font-display text-xl font-bold text-white">
-                      {i + 1}
-                    </span>
+                    <s.icon className="text-white" size={24} />
                   </div>
                 </div>
 
                 <div className="flex-1 pt-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <s.icon className="text-[#425CC7] shrink-0" size={18} />
-                    <h3 className="font-display text-base md:text-lg font-bold text-foreground">
-                      {s.title}
-                    </h3>
-                  </div>
+                  <h3 className="font-display text-base md:text-lg font-bold text-foreground mb-1">
+                    {s.title}
+                  </h3>
                   <p className="text-sm md:text-base text-muted-foreground leading-snug">
                     {s.desc}
                   </p>
