@@ -5,8 +5,17 @@ import {
   CreditCard,
   LogOut,
   ClipboardCheck,
+  Clock,
+  UserX,
+  Zap,
 } from "lucide-react";
 import modeloImg from "@/assets/almo-modelo-negocio.jpg";
+
+const highlights = [
+  { icon: Clock, label: "Funciona 24h por dia" },
+  { icon: UserX, label: "Sem funcionários" },
+  { icon: Zap, label: "Experiência rápida e prática" },
+];
 
 const steps = [
   {
