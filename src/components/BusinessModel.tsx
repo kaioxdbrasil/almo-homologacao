@@ -5,8 +5,17 @@ import {
   CreditCard,
   LogOut,
   ClipboardCheck,
+  Clock,
+  UserX,
+  Zap,
 } from "lucide-react";
 import modeloImg from "@/assets/almo-modelo-negocio.jpg";
+
+const highlights = [
+  { icon: Clock, label: "Funciona 24h por dia" },
+  { icon: UserX, label: "Sem funcionários" },
+  { icon: Zap, label: "Experiência rápida e prática" },
+];
 
 const steps = [
   {
@@ -142,6 +151,30 @@ export default function BusinessModel() {
             ))}
           </motion.ol>
         </div>
+
+        {/* Destaques — sem fundo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 max-w-4xl mx-auto"
+        >
+          {highlights.map((h, i) => (
+            <motion.div
+              key={h.label}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="flex items-center gap-2"
+            >
+              <h.icon className="text-[#425CC7] shrink-0" size={20} />
+              <span className="font-display text-sm md:text-base font-bold text-foreground">
+                {h.label}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
 
       </div>
     </section>
