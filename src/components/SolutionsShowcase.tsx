@@ -54,9 +54,6 @@ export default function SolutionsShowcase() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="order-2 md:order-2"
             >
-              <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary mb-3">
-                Solução 01
-              </span>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
                 Abra um minimercado autônomo
               </h2>
@@ -67,9 +64,7 @@ export default function SolutionsShowcase() {
               <ul className="space-y-3 mb-8">
                 {minimercadoBullets.map((b) => (
                   <li key={b.text} className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <b.icon className="text-primary" size={18} />
-                    </div>
+                    <b.icon className="text-primary shrink-0" size={22} />
                     <span className="text-foreground font-medium">{b.text}</span>
                   </li>
                 ))}
@@ -115,9 +110,6 @@ export default function SolutionsShowcase() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="order-2 md:order-1"
             >
-              <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary mb-3">
-                Solução 02
-              </span>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
                 Tenha uma geladeira autônoma
               </h2>
@@ -128,9 +120,7 @@ export default function SolutionsShowcase() {
               <ul className="space-y-3 mb-8">
                 {geladeiraBullets.map((b) => (
                   <li key={b.text} className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <b.icon className="text-primary" size={18} />
-                    </div>
+                    <b.icon className="text-primary shrink-0" size={22} />
                     <span className="text-foreground font-medium">{b.text}</span>
                   </li>
                 ))}
