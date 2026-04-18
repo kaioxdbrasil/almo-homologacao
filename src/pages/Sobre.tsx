@@ -73,7 +73,7 @@ const timeline = [
   {
     year: "Hoje",
     title: "Crescendo com propósito",
-    text: "Mais de 20 unidades operando, expandindo para novas cidades.",
+    text: "16 unidades operando, expandindo para novas cidades.",
     isNow: true,
   },
 ];
