@@ -16,7 +16,7 @@ const testimonials = [
     quote:
       "Em 4 meses já recuperei boa parte do investimento. O suporte da ALMO é o que faz a diferença — sempre que precisei, atenderam rápido.",
     author: "Carlos M.",
-    role: "Licenciado ALMO • Manaus/AM",
+    role: "Licenciado ALMO • Rio Branco/AC",
     since: "Unidade aberta há 8 meses",
     photo: carlosPhoto,
   },
@@ -24,7 +24,7 @@ const testimonials = [
     quote:
       "Operação muito mais simples do que eu imaginava. Faço a reposição 2x por semana e o sistema cuida do resto. Já estou planejando a 2ª unidade.",
     author: "Ana L.",
-    role: "Licenciada ALMO • Belém/PA",
+    role: "Licenciada ALMO • Rio Branco/AC",
     since: "Unidade aberta há 11 meses",
     photo: anaPhoto,
   },
@@ -32,7 +32,7 @@ const testimonials = [
     quote:
       "Os moradores adoraram. Como síndico, foi a melhor decisão — zero custo pro condomínio e muita conveniência pros nossos moradores.",
     author: "Rafael S.",
-    role: "Síndico • Porto Velho/RO",
+    role: "Síndico • Rio Branco/AC",
     since: "Unidade aberta há 6 meses",
     photo: rafaelPhoto,
   },
