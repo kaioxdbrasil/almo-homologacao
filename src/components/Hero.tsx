@@ -47,7 +47,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-5">
               <span className="w-2 h-2 rounded-full bg-[#6FCFEB] animate-pulse" />
               <span className="text-xs font-semibold text-white/90">
-                +20 unidades operando na região Norte
+                +16 unidades operando na região Norte
               </span>
             </div>
 
