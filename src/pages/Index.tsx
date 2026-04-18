@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import BusinessModel from "@/components/BusinessModel";
-import HowItWorks from "@/components/HowItWorks";
 import SocialProof from "@/components/SocialProof";
 import Differentials from "@/components/Differentials";
 import Objections from "@/components/Objections";
@@ -16,7 +15,6 @@ export default function Index() {
       <main>
         <Hero />
         <BusinessModel />
-        <HowItWorks />
         <SocialProof />
         <Differentials />
         <Objections />
