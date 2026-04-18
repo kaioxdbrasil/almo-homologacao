@@ -5,9 +5,6 @@ import {
   CreditCard,
   LogOut,
   ClipboardCheck,
-  Clock,
-  UserX,
-  Zap,
 } from "lucide-react";
 import modeloImg from "@/assets/almo-modelo-negocio.jpg";
 
@@ -37,12 +34,6 @@ const steps = [
     title: "Tudo é registrado automaticamente",
     desc: "Controle total de compras e acessos.",
   },
-];
-
-const highlights = [
-  { icon: Clock, label: "Funciona 24h por dia" },
-  { icon: UserX, label: "Sem funcionários" },
-  { icon: Zap, label: "Experiência rápida e prática" },
 ];
 
 const badges = [
@@ -152,31 +143,6 @@ export default function BusinessModel() {
           </motion.ol>
         </div>
 
-        {/* Bloco de reforço */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto"
-        >
-          {highlights.map((h, i) => (
-            <motion.div
-              key={h.label}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex items-center gap-3 bg-card border border-border rounded-2xl px-5 py-4 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="shrink-0 w-11 h-11 rounded-xl bg-[#425CC7]/10 flex items-center justify-center">
-                <h.icon className="text-[#425CC7]" size={20} />
-              </div>
-              <span className="font-display text-sm md:text-base font-bold text-foreground leading-tight">
-                {h.label}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
