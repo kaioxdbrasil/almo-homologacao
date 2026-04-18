@@ -17,8 +17,8 @@ export default function Index() {
         <Hero />
         <BusinessModel />
         <SolutionsShowcase />
-        <SocialProof />
         <Differentials />
+        <SocialProof />
         <Objections />
         <LeadForm />
       </main>
