@@ -4,10 +4,25 @@ import { Button } from "@/components/ui/button";
 const WHATSAPP_URL =
   "https://wa.me/5511999999999?text=Quero abrir um minimercado autônomo ALMO!";
 
-export default function FinalCTA() {
+interface FinalCTAProps {
+  title?: string;
+  subtitle?: string;
+  variant?: "honest-market" | "almogo";
+}
+
+export default function FinalCTA({ 
+  title = "Pronto pra ter seu próprio minimercado?",
+  subtitle = "+50 pessoas já estão faturando com o modelo ALMO. Você pode ser a próxima.",
+  variant = "honest-market"
+}: FinalCTAProps) {
   const scrollToForm = () => {
     document.getElementById("quero-comecar")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const whatsappText = variant === "almogo" 
+    ? "Quero instalar uma Almo GO no meu espaço!"
+    : "Quero abrir um minimercado autônomo ALMO!";
+  const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(whatsappText)}`;
 
   return (
     <section
@@ -34,10 +49,10 @@ export default function FinalCTA() {
           className="text-center text-white max-w-2xl mx-auto"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 leading-tight">
-            Pronto pra ter seu próprio minimercado?
+            {title}
           </h2>
           <p className="text-lg text-white/90 mb-8">
-            +50 pessoas já estão faturando com o modelo ALMO. Você pode ser a próxima.
+            {subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
@@ -54,7 +69,7 @@ export default function FinalCTA() {
               asChild
               className="text-base font-bold h-12 px-8 border-2 border-white bg-transparent text-white hover:bg-white/10 hover:text-white"
             >
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 Falar no WhatsApp
               </a>
             </Button>
