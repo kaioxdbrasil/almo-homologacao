@@ -78,20 +78,18 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
-              <div className="rounded-xl bg-gradient-to-r from-[#6FCFEB] to-white p-[2px]">
-                <Button
-                  size="lg"
-                  onClick={scrollToForm}
-                  className="px-6 h-12 rounded-[10px] bg-white text-[#425CC7] hover:bg-white/90 font-bold w-full sm:w-auto"
-                >
-                  Quero ser licenciado
-                </Button>
-              </div>
+              <Button
+                size="lg"
+                onClick={scrollToForm}
+                className="px-6 h-12 rounded-xl bg-white text-[#425CC7] hover:bg-white/90 font-bold w-full sm:w-auto"
+              >
+                Quero ser licenciado
+              </Button>
               <Button
                 size="lg"
                 variant="outline"
                 asChild
-                className="px-6 h-12 rounded-xl border-2 border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold w-full sm:w-auto"
+                className="px-6 h-12 rounded-xl border-[1.5px] border-white bg-transparent text-white hover:bg-white/10 font-medium w-full sm:w-auto"
               >
                 <Link to="/condominios">
                   Quero no meu condomínio
