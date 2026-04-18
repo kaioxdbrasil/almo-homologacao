@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Building2, Briefcase, ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/hero-market.jpg";
 
 const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero abrir um minimercado autônomo ALMO!";
@@ -102,51 +102,6 @@ export default function Hero() {
             <p className="text-xs text-white/60 mt-4">
               Resposta em até 1 dia útil • Sem compromisso
             </p>
-
-            <p className="mt-3 text-white/50" style={{ fontSize: "13px" }}>
-              É síndico ou gestor de empresa?{" "}
-              <Link
-                to="/condominios"
-                className="underline underline-offset-2 hover:opacity-90 transition-opacity"
-                style={{ color: "#6FCFEB" }}
-              >
-                Veja como ter uma Almo no seu espaço →
-              </Link>
-            </p>
-
-            {/* Bloco condomínio/empresa */}
-            <div className="mt-5 pt-5 border-t border-white/15">
-              <p
-                className="text-white/40 mb-3 uppercase"
-                style={{ fontSize: "11px", letterSpacing: "1.5px" }}
-              >
-                Você é condomínio ou empresa?
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <Link
-                  to="/condominios"
-                  className="group flex items-center gap-2.5 rounded-xl bg-white/[0.08] border border-white/15 hover:bg-white/[0.15] transition-colors"
-                  style={{ padding: "14px 18px" }}
-                >
-                  <Building2 size={18} className="text-white shrink-0" />
-                  <span className="text-white font-semibold flex-1" style={{ fontSize: "13px" }}>
-                    Sou síndico de condomínio
-                  </span>
-                  <ArrowRight size={16} className="text-white shrink-0 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-                <Link
-                  to="/condominios#empresas"
-                  className="group flex items-center gap-2.5 rounded-xl bg-white/[0.08] border border-white/15 hover:bg-white/[0.15] transition-colors"
-                  style={{ padding: "14px 18px" }}
-                >
-                  <Briefcase size={18} className="text-white shrink-0" />
-                  <span className="text-white font-semibold flex-1" style={{ fontSize: "13px" }}>
-                    Sou gestor de empresa
-                  </span>
-                  <ArrowRight size={16} className="text-white shrink-0 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </div>
-            </div>
           </motion.div>
 
           {/* Image column */}
