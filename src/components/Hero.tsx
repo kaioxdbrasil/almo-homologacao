@@ -91,11 +91,11 @@ export default function Hero() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="px-6 h-12 rounded-xl border-2 border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold"
+                className="px-6 h-12 rounded-xl border-2 border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold w-full sm:w-auto"
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <Link to="/condominios">
                   Quero no meu condomínio
-                </a>
+                </Link>
               </Button>
             </motion.div>
 
