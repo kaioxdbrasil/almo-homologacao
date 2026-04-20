@@ -4,10 +4,10 @@ import marcosPhoto from "@/assets/testimonial-marcos.jpg";
 import carlaPhoto from "@/assets/testimonial-carla.jpg";
 
 const stats = [
-  { value: "+50", label: "Unidades em operação" },
-  { value: "+10 mil", label: "Compras realizadas" },
-  { value: "98%", label: "Satisfação dos moradores" },
-  { value: "+15", label: "Cidades atendidas" },
+  { value: "+6.000", label: "Compras todos os meses na rede" },
+  { value: "Até R$ 180 mil", label: "Faturamento por unidade" },
+  { value: "+2.000", label: "Famílias beneficiadas com minimercado" },
+  { value: "16", label: "Unidades em operação" },
 ];
 
 const testimonials = [
