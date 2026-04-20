@@ -79,11 +79,17 @@ export default function Objections() {
           ))}
         </Accordion>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 px-4">
           <p className="text-muted-foreground mb-4">Ainda tem dúvidas?</p>
-          <Button size="lg" variant="outline" asChild className="font-bold">
+          <Button
+            size="lg"
+            variant="outline"
+            asChild
+            className="font-bold w-full sm:w-auto h-auto min-h-12 py-3 px-5 whitespace-normal text-sm sm:text-base leading-tight"
+          >
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              Falar com um especialista no WhatsApp
+              <span className="sm:hidden">Falar com especialista no WhatsApp</span>
+              <span className="hidden sm:inline">Falar com um especialista no WhatsApp</span>
             </a>
           </Button>
         </div>
