@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import BusinessModel from "@/components/BusinessModel";
 import SolutionsShowcase from "@/components/SolutionsShowcase";
-import BusinessNumbers from "@/components/BusinessNumbers";
 import SocialProof from "@/components/SocialProof";
 import Differentials from "@/components/Differentials";
 import Objections from "@/components/Objections";
@@ -19,7 +18,6 @@ export default function Index() {
         <BusinessModel />
         <SolutionsShowcase />
         <Differentials />
-        <BusinessNumbers />
         <SocialProof />
         <Objections />
         <LeadForm />
