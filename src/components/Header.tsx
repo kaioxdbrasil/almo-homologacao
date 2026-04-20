@@ -11,7 +11,7 @@ type NavItem = { label: string; href: string };
 type HeaderVariant = "default" | "condominios";
 
 const DEFAULT_NAV: NavItem[] = [
-  { label: "Como funciona", href: "/#como-funciona" },
+  { label: "Soluções", href: "/#solucoes" },
   { label: "Números", href: "/#numeros" },
   { label: "Dúvidas", href: "/#duvidas" },
   { label: "Para condomínios", href: "/condominios" },
