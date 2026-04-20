@@ -133,7 +133,7 @@ export default function LeadForm() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-primary-foreground md:sticky md:top-24 text-center md:text-left"
+            className="text-primary-foreground md:sticky md:top-24 text-center md:text-left min-w-0 w-full"
           >
             <span className="inline-block text-xs font-bold tracking-widest text-secondary uppercase mb-3">
               Próximo passo
