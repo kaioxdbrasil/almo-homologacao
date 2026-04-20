@@ -127,7 +127,7 @@ export default function LeadForm() {
   return (
     <section id="quero-comecar" className="section-padding bg-primary">
       <div className="container mx-auto max-w-5xl">
-        <div className="grid md:grid-cols-2 gap-10 items-start">
+        <div className="grid md:grid-cols-2 gap-10 items-start justify-items-center md:justify-items-stretch">
           {/* Left copy */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
