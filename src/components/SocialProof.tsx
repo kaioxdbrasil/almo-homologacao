@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import carlosPhoto from "@/assets/testimonial-carlos.jpg";
-import anaPhoto from "@/assets/testimonial-ana.jpg";
-import rafaelPhoto from "@/assets/testimonial-rafael.jpg";
+import marcosPhoto from "@/assets/testimonial-marcos.jpg";
+import carlaPhoto from "@/assets/testimonial-carla.jpg";
 
 const stats = [
   { value: "+50", label: "Unidades em operação" },
@@ -14,19 +13,19 @@ const stats = [
 const testimonials = [
   {
     quote:
-      "Em 4 meses já recuperei boa parte do investimento. O suporte da ALMO é o que faz a diferença — sempre que precisei, atenderam rápido.",
-    author: "Carlos M.",
+      "Eu queria um negócio que não estivesse presente o tempo todo, conhecemos a ideia e fizemos negócio, um network muito bom, a ALMO Honest Market vem nos trazendo bons retornos, sempre gostei da área e foi um ótimo negócio.",
+    author: "Marcos Santos",
     role: "Licenciado ALMO • Rio Branco/AC",
-    since: "Unidade aberta há 8 meses",
-    photo: carlosPhoto,
+    since: "",
+    photo: marcosPhoto,
   },
   {
     quote:
-      "Operação muito mais simples do que eu imaginava. Faço a reposição 2x por semana e o sistema cuida do resto. Já estou planejando a 2ª unidade.",
-    author: "Ana L.",
+      "Fico extremamente feliz por fazer parte de uma empresa que oferece suporte aos licenciados. Por exemplo, nossos clientes possuem gostos específicos, eles nos orientam na escolha dos produtos que mais agradarão aos residentes. É ótimo contar com esse apoio para atender às preferências de nossos clientes.",
+    author: "Carla Flores",
     role: "Licenciada ALMO • Rio Branco/AC",
-    since: "Unidade aberta há 11 meses",
-    photo: anaPhoto,
+    since: "",
+    photo: carlaPhoto,
   },
 ];
 
