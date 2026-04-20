@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import HowItWorks from "@/components/HowItWorks";
+import BusinessNumbers from "@/components/BusinessNumbers";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import { Button } from "@/components/ui/button";
@@ -113,6 +114,7 @@ export default function HonestMarket() {
           </div>
         </section>
 
+        <BusinessNumbers />
         <FinalCTA />
       </main>
       <Footer />
