@@ -165,7 +165,7 @@ export default function LeadForm() {
           </motion.div>
 
           {/* Form / Success */}
-          <div className="relative min-h-[520px]">
+          <div className="relative min-h-[520px] w-full max-w-md md:max-w-none mx-auto">
             <AnimatePresence mode="wait">
               {success ? (
                 <motion.div
