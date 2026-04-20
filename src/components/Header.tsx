@@ -11,12 +11,10 @@ type NavItem = { label: string; href: string };
 type HeaderVariant = "default" | "condominios";
 
 const DEFAULT_NAV: NavItem[] = [
-  { label: "Soluções", href: "/#solucoes" },
-  { label: "Números", href: "/#numeros" },
-  { label: "Dúvidas", href: "/#duvidas" },
-  { label: "Para condomínios", href: "/condominios" },
+  { label: "Quero no meu condomínio", href: "/condominios" },
+  { label: "Quero ser licenciado", href: "/#quero-comecar" },
+  { label: "Quero uma Geladeira autônoma", href: "/almo-go" },
   { label: "Blog", href: "/blog" },
-  { label: "Sobre", href: "/sobre" },
 ];
 
 const CONDOS_NAV: NavItem[] = [
