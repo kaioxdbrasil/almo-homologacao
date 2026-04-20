@@ -133,7 +133,7 @@ export default function LeadForm() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-primary-foreground md:sticky md:top-24"
+            className="text-primary-foreground md:sticky md:top-24 text-center md:text-left"
           >
             <span className="inline-block text-xs font-bold tracking-widest text-secondary uppercase mb-3">
               Próximo passo
@@ -144,7 +144,7 @@ export default function LeadForm() {
             <p className="text-primary-foreground/90 text-lg mb-6">
               Em até 1 dia útil, um especialista entra em contato no seu WhatsApp e te envia:
             </p>
-            <ul className="space-y-4 text-primary-foreground">
+            <ul className="space-y-4 text-primary-foreground inline-block text-left mx-auto md:mx-0">
               {[
                 "Apresentação completa do modelo de negócio",
                 "Projeção financeira detalhada da sua região",
@@ -158,7 +158,7 @@ export default function LeadForm() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex items-center gap-2 text-sm text-primary-foreground/80">
+            <div className="mt-8 flex items-center justify-center md:justify-start gap-2 text-sm text-primary-foreground/80">
               <ShieldCheck size={18} className="text-secondary" />
               Seus dados estão seguros. Sem spam.
             </div>
