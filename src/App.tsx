@@ -14,6 +14,7 @@ import BlogPost from "./pages/BlogPost";
 import Links from "./pages/Links";
 import NotFound from "./pages/NotFound";
 import AccessibilityWidget from "./components/AccessibilityWidget";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <AccessibilityWidget />
           <Routes>
             <Route path="/" element={<Index />} />
