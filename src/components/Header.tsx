@@ -12,7 +12,7 @@ type HeaderVariant = "default" | "condominios";
 
 const DEFAULT_NAV: NavItem[] = [
   { label: "Quero no meu condomínio", href: "/condominios" },
-  { label: "Quero ser licenciado", href: "/#quero-comecar" },
+  { label: "Quero ser licenciado", href: "/almo-honest-market" },
   { label: "Quero uma Geladeira autônoma", href: "/almo-go" },
   { label: "Blog", href: "/blog" },
 ];
