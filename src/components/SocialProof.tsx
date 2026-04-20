@@ -28,14 +28,6 @@ const testimonials = [
     since: "Unidade aberta há 11 meses",
     photo: anaPhoto,
   },
-  {
-    quote:
-      "Os moradores adoraram. Como síndico, foi a melhor decisão — zero custo pro condomínio e muita conveniência pros nossos moradores.",
-    author: "Rafael S.",
-    role: "Síndico • Rio Branco/AC",
-    since: "Unidade aberta há 6 meses",
-    photo: rafaelPhoto,
-  },
 ];
 
 export default function SocialProof() {
