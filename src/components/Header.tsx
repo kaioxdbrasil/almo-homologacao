@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import almoIsotipo from "@/assets/almo-isotipo-white.png";
+import almoLogoWhite from "@/assets/almo-logo-white.png";
 import almoLogo from "@/assets/almo-logo.png";
 
 type NavItem = { label: string; href: string };
@@ -94,7 +94,7 @@ export default function Header({ variant = "default" }: HeaderProps) {
     }
   };
 
-  const logoSrc = scrolled ? almoLogo : almoIsotipo;
+  const logoSrc = scrolled ? almoLogo : almoLogoWhite;
   const textColorClass = scrolled
     ? "text-foreground/80 hover:text-[#6FCFEB]"
     : "text-primary-foreground/80 hover:text-[#6FCFEB]";
