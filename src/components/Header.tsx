@@ -18,12 +18,10 @@ const DEFAULT_NAV: NavItem[] = [
 ];
 
 const CONDOS_NAV: NavItem[] = [
-  { label: "Para condomínios", href: "/condominios" },
-  { label: "O que é", href: "/condominios#o-que-e" },
-  { label: "Como funciona", href: "/condominios#como-funciona" },
-  { label: "Dúvidas", href: "/condominios#faq" },
+  { label: "Quero no meu condomínio", href: "/condominios" },
+  { label: "Quero ser licenciado", href: "/almo-honest-market" },
+  { label: "Quero uma Geladeira autônoma", href: "/almo-go" },
   { label: "Blog", href: "/blog" },
-  { label: "Sobre", href: "/sobre" },
 ];
 
 const DEFAULT_WHATSAPP =
