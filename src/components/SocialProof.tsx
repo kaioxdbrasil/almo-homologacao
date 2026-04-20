@@ -4,10 +4,10 @@ import marcosPhoto from "@/assets/testimonial-marcos.jpg";
 import carlaPhoto from "@/assets/testimonial-carla.jpg";
 
 const stats = [
-  { value: "+6.000", label: "Compras todos os meses na rede" },
-  { value: "Até R$ 180 mil", label: "Faturamento por unidade" },
-  { value: "+2.000", label: "Famílias beneficiadas com minimercado" },
-  { value: "16", label: "Unidades em operação" },
+  { value: "+6.000", mobileValue: "+6 mil", label: "Compras todos os meses na rede" },
+  { value: "Até R$ 180 mil", mobileValue: "Até R$ 180 mil", label: "Faturamento por unidade" },
+  { value: "+2.000", mobileValue: "+2 mil", label: "Famílias beneficiadas com minimercado" },
+  { value: "16", mobileValue: "16", label: "Unidades em operação" },
 ];
 
 const testimonials = [
@@ -59,7 +59,8 @@ export default function SocialProof() {
               className="bg-card border border-border rounded-2xl shadow-card p-6 text-center"
             >
               <div className="font-display text-3xl md:text-4xl font-bold text-gradient mb-1">
-                {stat.value}
+                <span className="md:hidden">{stat.mobileValue}</span>
+                <span className="hidden md:inline">{stat.value}</span>
               </div>
               <div className="text-muted-foreground text-sm">{stat.label}</div>
             </motion.div>
