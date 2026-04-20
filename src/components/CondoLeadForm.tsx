@@ -118,7 +118,7 @@ export default function CondoLeadForm() {
   };
 
   return (
-    <div className="relative min-h-[560px]">
+    <div className="relative">
       <AnimatePresence mode="wait">
         {success ? (
           <motion.div
@@ -127,26 +127,26 @@ export default function CondoLeadForm() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4 }}
-            className="bg-white rounded-2xl p-8 md:p-10 shadow-soft text-center flex flex-col items-center justify-center min-h-[560px]"
+            className="bg-white rounded-2xl p-6 md:p-8 shadow-soft text-center flex flex-col items-center justify-center"
           >
             <motion.div
               initial={{ scale: 0, rotate: -90 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
-              className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
+              className="w-16 h-16 rounded-full flex items-center justify-center mb-4"
               style={{ backgroundColor: "hsl(142 76% 92%)" }}
             >
-              <CheckCircle2 size={56} strokeWidth={2.5} style={{ color: "hsl(142 71% 35%)" }} />
+              <CheckCircle2 size={44} strokeWidth={2.5} style={{ color: "hsl(142 71% 35%)" }} />
             </motion.div>
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
+            <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
               Recebemos!
             </h3>
-            <p className="text-muted-foreground text-base md:text-lg max-w-sm">
+            <p className="text-muted-foreground text-sm md:text-base max-w-sm">
               Em breve um especialista entra em contato no WhatsApp informado.
             </p>
             <button
               onClick={() => setSuccess(false)}
-              className="mt-6 text-sm text-primary font-semibold hover:underline"
+              className="mt-4 text-sm text-primary font-semibold hover:underline"
             >
               Enviar outro contato
             </button>
@@ -158,59 +158,61 @@ export default function CondoLeadForm() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             onSubmit={handleSubmit}
-            className="bg-white rounded-2xl p-6 md:p-8 shadow-soft space-y-4"
+            className="bg-white rounded-2xl p-5 md:p-6 shadow-soft space-y-3"
           >
             <div>
-              <Label htmlFor="c-nome" className="font-semibold">Nome completo</Label>
+              <Label htmlFor="c-nome" className="text-sm font-semibold">Nome completo</Label>
               <Input
                 id="c-nome"
                 value={form.nome}
                 onChange={(e) => setForm({ ...form, nome: e.target.value })}
                 placeholder="Seu nome"
-                className="mt-1.5 h-11"
+                className="mt-1 h-9 text-sm"
                 disabled={loading}
                 maxLength={100}
               />
               {errors.nome && <p className="text-destructive text-xs mt-1">{errors.nome}</p>}
             </div>
 
-            <div>
-              <Label htmlFor="c-whats" className="font-semibold">WhatsApp (com DDD)</Label>
-              <Input
-                id="c-whats"
-                value={form.whatsapp}
-                onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-                placeholder="(11) 99999-9999"
-                className="mt-1.5 h-11"
-                disabled={loading}
-                maxLength={20}
-              />
-              {errors.whatsapp && <p className="text-destructive text-xs mt-1">{errors.whatsapp}</p>}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <Label htmlFor="c-whats" className="text-sm font-semibold">WhatsApp</Label>
+                <Input
+                  id="c-whats"
+                  value={form.whatsapp}
+                  onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
+                  placeholder="(11) 99999-9999"
+                  className="mt-1 h-9 text-sm"
+                  disabled={loading}
+                  maxLength={20}
+                />
+                {errors.whatsapp && <p className="text-destructive text-xs mt-1">{errors.whatsapp}</p>}
+              </div>
+
+              <div>
+                <Label htmlFor="c-email" className="text-sm font-semibold">E-mail</Label>
+                <Input
+                  id="c-email"
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="voce@email.com"
+                  className="mt-1 h-9 text-sm"
+                  disabled={loading}
+                  maxLength={120}
+                />
+                {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
+              </div>
             </div>
 
             <div>
-              <Label htmlFor="c-email" className="font-semibold">E-mail</Label>
-              <Input
-                id="c-email"
-                type="email"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="voce@email.com"
-                className="mt-1.5 h-11"
-                disabled={loading}
-                maxLength={120}
-              />
-              {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
-            </div>
-
-            <div>
-              <Label htmlFor="c-perfil" className="font-semibold">Você é...</Label>
+              <Label htmlFor="c-perfil" className="text-sm font-semibold">Você é...</Label>
               <Select
                 value={form.perfil}
                 onValueChange={(v) => setForm({ ...form, perfil: v as typeof PERFIS[number] })}
                 disabled={loading}
               >
-                <SelectTrigger id="c-perfil" className="mt-1.5 h-11">
+                <SelectTrigger id="c-perfil" className="mt-1 h-9 text-sm">
                   <SelectValue placeholder="Selecione" />
                 </SelectTrigger>
                 <SelectContent>
@@ -222,51 +224,53 @@ export default function CondoLeadForm() {
               {errors.perfil && <p className="text-destructive text-xs mt-1">{errors.perfil}</p>}
             </div>
 
-            <div>
-              <Label htmlFor="c-estado" className="font-semibold">Cidade / Estado</Label>
-              <Select
-                value={form.cidade}
-                onValueChange={(v) => setForm({ ...form, cidade: v })}
-                disabled={loading}
-              >
-                <SelectTrigger id="c-estado" className="mt-1.5 h-11">
-                  <SelectValue placeholder="Selecione seu estado" />
-                </SelectTrigger>
-                <SelectContent className="max-h-72">
-                  {ESTADOS.map((e) => (
-                    <SelectItem key={e.uf} value={e.uf}>
-                      {e.nome} ({e.uf})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              {errors.cidade && <p className="text-destructive text-xs mt-1">{errors.cidade}</p>}
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <Label htmlFor="c-estado" className="text-sm font-semibold">Estado</Label>
+                <Select
+                  value={form.cidade}
+                  onValueChange={(v) => setForm({ ...form, cidade: v })}
+                  disabled={loading}
+                >
+                  <SelectTrigger id="c-estado" className="mt-1 h-9 text-sm">
+                    <SelectValue placeholder="UF" />
+                  </SelectTrigger>
+                  <SelectContent className="max-h-72">
+                    {ESTADOS.map((e) => (
+                      <SelectItem key={e.uf} value={e.uf}>
+                        {e.nome} ({e.uf})
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {errors.cidade && <p className="text-destructive text-xs mt-1">{errors.cidade}</p>}
+              </div>
 
-            <div>
-              <Label htmlFor="c-tam" className="font-semibold">Tamanho do espaço</Label>
-              <Select
-                value={form.tamanho}
-                onValueChange={(v) => setForm({ ...form, tamanho: v as typeof TAMANHOS[number] })}
-                disabled={loading}
-              >
-                <SelectTrigger id="c-tam" className="mt-1.5 h-11">
-                  <SelectValue placeholder="Selecione" />
-                </SelectTrigger>
-                <SelectContent>
-                  {TAMANHOS.map((t) => (
-                    <SelectItem key={t} value={t}>{t}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              {errors.tamanho && <p className="text-destructive text-xs mt-1">{errors.tamanho}</p>}
+              <div>
+                <Label htmlFor="c-tam" className="text-sm font-semibold">Tamanho</Label>
+                <Select
+                  value={form.tamanho}
+                  onValueChange={(v) => setForm({ ...form, tamanho: v as typeof TAMANHOS[number] })}
+                  disabled={loading}
+                >
+                  <SelectTrigger id="c-tam" className="mt-1 h-9 text-sm">
+                    <SelectValue placeholder="Selecione" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {TAMANHOS.map((t) => (
+                      <SelectItem key={t} value={t}>{t}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {errors.tamanho && <p className="text-destructive text-xs mt-1">{errors.tamanho}</p>}
+              </div>
             </div>
 
             <Button
               type="submit"
-              size="lg"
+              size="default"
               disabled={loading}
-              className="w-full h-12 font-bold text-base"
+              className="w-full h-10 font-bold text-sm mt-1"
               style={{ backgroundColor: "#0f1b4d" }}
             >
               {loading ? (
@@ -279,8 +283,8 @@ export default function CondoLeadForm() {
               )}
             </Button>
 
-            <p className="text-xs text-muted-foreground text-center">
-              Seus dados estão seguros. Usamos apenas para entrar em contato sobre uma possível instalação.
+            <p className="text-[11px] text-muted-foreground text-center leading-snug">
+              Seus dados estão seguros. Usamos apenas para entrar em contato.
             </p>
           </motion.form>
         )}
