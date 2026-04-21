@@ -28,10 +28,10 @@ const numbers: NumberItem[] = [
   },
   {
     icon: Wallet,
-    label: "Investimento médio",
+    label: "Investimento inicial",
     prefix: "A partir de R$ ",
     suffix: " mil*",
-    target: 25,
+    target: 32,
     sub: "Estrutura completa entregue",
   },
   {
@@ -48,7 +48,7 @@ const numbers: NumberItem[] = [
     label: "Unidades no Brasil",
     prefix: "+",
     suffix: " unidades*",
-    target: 20,
+    target: 16,
     sub: "Na região Norte e expandindo",
   },
 ];
