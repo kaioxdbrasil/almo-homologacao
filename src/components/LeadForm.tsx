@@ -357,7 +357,7 @@ export default function LeadForm() {
                     </div>
                   </div>
 
-                  <Button type="submit" size="lg" disabled={loading} className="w-full h-12 font-bold text-base">
+                  <Button type="submit" size="lg" disabled={loading} className="w-full h-auto min-h-12 py-3 px-4 font-bold text-sm sm:text-base whitespace-normal leading-tight">
                     {loading ? (
                       <>
                         <Loader2 className="animate-spin" />
