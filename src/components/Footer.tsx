@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import almoLogoWhite from "@/assets/almo-logo-white.png";
+import { WA_COMERCIAL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -35,8 +36,25 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-sm opacity-70">
-              <li>contato@almo.com.br</li>
-              <li>Rio Branco, AC — Região Norte</li>
+              <li>
+                <a
+                  href="mailto:comercial@almobrasil.com.br"
+                  className="hover:opacity-100 transition-opacity"
+                >
+                  comercial@almobrasil.com.br
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://wa.me/${WA_COMERCIAL}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-100 transition-opacity"
+                >
+                  WhatsApp: (68) 99207-4158
+                </a>
+              </li>
+              <li>Rio Branco — AC</li>
             </ul>
           </div>
         </div>
