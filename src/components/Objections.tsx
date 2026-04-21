@@ -13,7 +13,7 @@ const WHATSAPP_URL =
 const faqs = [
   {
     q: "E se acontecer furto? Como vocês lidam com isso?",
-    a: "Nossas unidades têm câmeras 24h, sensores e sistema antifraude integrado. O índice de perda é monitorado e fica dentro de uma faixa controlada — já contabilizada nas projeções de margem. Você não fica sozinho: o time ALMO acompanha métricas e age junto com você.",
+    a: "Nossas unidades têm câmeras 24h e sistema antifraude integrado. O índice de perda é monitorado e fica dentro de uma faixa controlada — já contabilizada nas projeções de margem. Você não fica sozinho: o time ALMO acompanha métricas e age junto com você.",
   },
   {
     q: "Preciso ficar no local? Quanto tempo por dia preciso dedicar?",
