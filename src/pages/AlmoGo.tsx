@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
+import SEOMeta from "@/components/SEOMeta";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import FinalCTA from "@/components/FinalCTA";
@@ -29,6 +30,10 @@ const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Quero saber mais sobre o ALMO GO!");
 export default function AlmoGo() {
   return (
     <>
+      <SEOMeta
+        title="ALMO GO — Geladeira Autônoma"
+        description="Geladeira autônoma inteligente para empresas, academias e clínicas."
+      />
       <Header />
       <main className="pt-20">
         <section className="section-padding">
