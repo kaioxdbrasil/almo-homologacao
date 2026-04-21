@@ -61,8 +61,12 @@ export default function Hero() {
               por ano com um minimercado autônomo
             </h1>
 
-            <p className="text-base md:text-lg text-white/80 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base md:text-lg text-white/80 mb-3 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               Sem funcionário, sem ponto comercial. Funcionando 24h em condomínios — com a estrutura, sistema e suporte da ALMO.
+            </p>
+
+            <p className="text-xs text-white/55 italic mb-6 max-w-lg mx-auto lg:mx-0">
+              * Estimativa anual por unidade em condomínio com 100+ unidades residenciais, em operação plena.
             </p>
 
             {/* Trust badges */}
