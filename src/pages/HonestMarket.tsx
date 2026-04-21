@@ -8,7 +8,7 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Store, Users, ShieldCheck, Clock } from "lucide-react";
-import honestImg from "@/assets/honest-market.jpg";
+import honestImg from "@/assets/almo-honest-market-store.jpg";
 import heroImg from "@/assets/hero-market.jpg";
 
 const benefits = [
@@ -57,7 +57,7 @@ export default function HonestMarket() {
                 </Button>
               </motion.div>
               <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }}>
-                <img src={honestImg} alt="ALMO Honest Market - minimercado autônomo em condomínio" className="rounded-2xl shadow-soft w-full" />
+                <img src={honestImg} alt="Loja física ALMO Honest Market - minimercado autônomo" className="rounded-2xl shadow-soft w-full aspect-[4/5] object-cover" />
               </motion.div>
             </div>
           </div>
@@ -91,6 +91,36 @@ export default function HonestMarket() {
         </section>
 
         <HowItWorks />
+
+        {/* Vídeo */}
+        <section className="section-padding bg-card">
+          <div className="container mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Veja o Honest Market em ação
+              </h2>
+              <p className="text-muted-foreground mb-10">
+                Uma demonstração real de como funciona o nosso mercado autônomo.
+              </p>
+              <div className="relative w-full overflow-hidden rounded-2xl shadow-soft aspect-video bg-black">
+                <iframe
+                  src="https://www.youtube.com/embed/IMo28PIeAgQ"
+                  title="ALMO Honest Market - Demonstração"
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Benefits */}
         <section className="section-padding">
