@@ -63,7 +63,16 @@ export default function AlmoGo() {
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }}>
-                <img src={fridgeImg} alt="ALMO GO - geladeira autônoma inteligente para empresas" className="rounded-2xl shadow-soft w-full" />
+                <div className="relative w-full overflow-hidden rounded-2xl shadow-soft bg-black mx-auto" style={{ aspectRatio: "9 / 16", maxWidth: "360px" }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/xeI5MML22HM?autoplay=1&mute=1&loop=1&playlist=xeI5MML22HM&controls=1&playsinline=1"
+                    title="ALMO GO - Demonstração"
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
               </motion.div>
             </div>
           </div>
