@@ -98,8 +98,7 @@ export default function CondoLeadForm() {
       const { error } = await supabase.from("leads").insert({
         nome: parsed.data.nome,
         whatsapp: parsed.data.whatsapp,
-        cidade: parsed.data.cidade,
-        municipio: parsed.data.municipio,
+        cidade: parsed.data.municipio ? `${parsed.data.cidade} - ${parsed.data.municipio}` : parsed.data.cidade,
         tem_condominio: true,
         perfil: parsed.data.perfil,
         faixa_investimento: parsed.data.tamanho,
