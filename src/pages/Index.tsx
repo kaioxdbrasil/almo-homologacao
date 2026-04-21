@@ -17,6 +17,7 @@ export default function Index() {
       <SEOMeta
         title="Abra seu minimercado autônomo"
         description="Fature até R$180k/ano com um minimercado autônomo em condomínios. Sem funcionários, funcionando 24h."
+        image="https://almobrasil.com.br/og-image.jpg"
       />
       <Header />
       <main>
