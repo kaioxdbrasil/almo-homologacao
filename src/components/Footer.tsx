@@ -29,7 +29,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm opacity-70">
               <li><Link to="/blog" className="hover:opacity-100 transition-opacity">Blog</Link></li>
               <li><a href="/#contato" className="hover:opacity-100 transition-opacity">Contato</a></li>
-              <li><a href="/#investidores" className="hover:opacity-100 transition-opacity">Investidores</a></li>
             </ul>
           </div>
 
