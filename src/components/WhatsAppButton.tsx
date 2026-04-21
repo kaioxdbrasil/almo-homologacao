@@ -54,7 +54,8 @@ export default function WhatsAppButton() {
   const [open, setOpen] = useState(false);
 
   const handleSelect = (opt: Option) => {
-    const url = `https://wa.me/${opt.number}?text=${encodeURIComponent(opt.message)}`;
+    const text = encodeURIComponent(opt.message);
+    const url = `https://wa.me/${opt.number}?text=${text}`;
     window.open(url, "_blank", "noopener,noreferrer");
     setOpen(false);
   };
