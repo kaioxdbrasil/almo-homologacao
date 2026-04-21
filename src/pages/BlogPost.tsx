@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEOMeta from "@/components/SEOMeta";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -47,6 +48,7 @@ export default function BlogPost() {
   if (!post) {
     return (
       <>
+        <SEOMeta title="Artigo não encontrado" description="O artigo que você procura não foi encontrado no blog da ALMO." />
         <Header />
         <main className="pt-20 section-padding">
           <div className="container mx-auto text-center">
@@ -63,6 +65,7 @@ export default function BlogPost() {
 
   return (
     <>
+      <SEOMeta title={post.title} description={post.meta} />
       <Header />
       <main className="pt-20">
         <article className="section-padding">
