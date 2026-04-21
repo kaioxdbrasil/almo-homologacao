@@ -15,7 +15,7 @@ const items = [
   {
     icon: ShieldCheck,
     title: "Modelo validado",
-    desc: "+50 unidades operando. Processos testados, métricas comprovadas.",
+    desc: "+16 unidades operando. Processos testados, métricas comprovadas.",
   },
   {
     icon: Package,

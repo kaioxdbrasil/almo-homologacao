@@ -7,7 +7,7 @@ const segments = [
     title: "Condomínios residenciais",
     desc: "O modelo mais validado. Alto fluxo, ticket recorrente, moradores fiéis.",
     badge: "Mais popular",
-    features: ["50+ unidades em moradores", "Faturamento previsível", "Suporte 24h"],
+    features: ["16+ unidades em moradores", "Faturamento previsível", "Suporte 24h"],
     highlight: true,
   },
   {
