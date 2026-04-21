@@ -109,14 +109,15 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative order-1 lg:order-2"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md lg:max-w-lg mx-auto aspect-[4/3]">
-              <img
-                src={heroImg}
-                alt="Minimercado autônomo ALMO instalado em condomínio, funcionando 24h"
-                className="w-full h-full object-cover"
-                loading="eager"
+            <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md lg:max-w-lg mx-auto aspect-video bg-black">
+              <iframe
+                src="https://www.youtube.com/embed/IMo28PIeAgQ?autoplay=1&mute=1&loop=1&playlist=IMo28PIeAgQ&controls=1&playsinline=1"
+                title="ALMO - Minimercado autônomo em condomínios"
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
               />
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#425CC7]/30 to-transparent" />
             </div>
           </motion.div>
         </div>
