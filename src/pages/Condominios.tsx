@@ -13,6 +13,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CondoWhatsAppButton from "@/components/CondoWhatsAppButton";
 import CondoLeadForm from "@/components/CondoLeadForm";
+import heroCondoImg from "@/assets/hero-condo.jpg";
+import interiorMercadoImg from "@/assets/interior-mercado.jpg";
 
 const HERO_BG = "#0f1b4d";
 const BRAND_BLUE = "#425CC7";
@@ -151,7 +153,7 @@ export default function Condominios() {
         <link rel="canonical" href="/condominios" />
       </Helmet>
 
-      <Header variant="condominios" />
+      <Header />
 
       <main className="pt-16 md:pt-20">
         {/* ===== SEÇÃO 1 — HERO ===== */}
@@ -221,8 +223,14 @@ export default function Condominios() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
+                className="w-full h-full flex items-center justify-center"
               >
-                <ImagePlaceholder label="Foto da unidade Almo" />
+                <img 
+                  src={heroCondoImg} 
+                  alt="Mercado Autônomo ALMO" 
+                  className="w-full rounded-2xl shadow-xl border border-white/10"
+                  style={{ aspectRatio: "4 / 3", objectFit: "cover" }}
+                />
               </motion.div>
             </div>
           </div>
@@ -245,7 +253,12 @@ export default function Condominios() {
           <div className="container mx-auto px-6 md:px-12 lg:px-16">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="order-1 lg:order-1">
-                <ImagePlaceholder label="Foto interna do mercado" />
+                <img 
+                  src={interiorMercadoImg} 
+                  alt="Interior do Mercado Autônomo ALMO" 
+                  className="w-full rounded-2xl shadow-lg border border-border"
+                  style={{ aspectRatio: "4 / 5", objectFit: "cover" }}
+                />
               </div>
               <div className="order-2 lg:order-2">
                 <span

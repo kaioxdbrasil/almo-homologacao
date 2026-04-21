@@ -54,6 +54,7 @@ const schema = z.object({
   email: z.string().trim().email("E-mail inválido").max(120),
   perfil: z.enum(PERFIS, { message: "Selecione uma opção" }),
   cidade: z.string().refine((v) => UFS.includes(v), { message: "Selecione seu estado" }),
+  municipio: z.string().trim().min(2, "Informe a cidade").max(100),
   tamanho: z.enum(TAMANHOS, { message: "Selecione o tamanho do espaço" }),
 });
 
@@ -65,6 +66,7 @@ const initial = {
   email: "",
   perfil: "" as typeof PERFIS[number] | "",
   cidade: "",
+  municipio: "",
   tamanho: "" as typeof TAMANHOS[number] | "",
 };
 
@@ -97,6 +99,7 @@ export default function CondoLeadForm() {
         nome: parsed.data.nome,
         whatsapp: parsed.data.whatsapp,
         cidade: parsed.data.cidade,
+        municipio: parsed.data.municipio,
         tem_condominio: true,
         perfil: parsed.data.perfil,
         faixa_investimento: parsed.data.tamanho,
@@ -224,7 +227,7 @@ export default function CondoLeadForm() {
               {errors.perfil && <p className="text-destructive text-xs mt-1">{errors.perfil}</p>}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <Label htmlFor="c-estado" className="text-sm font-semibold">Estado</Label>
                 <Select
@@ -244,6 +247,20 @@ export default function CondoLeadForm() {
                   </SelectContent>
                 </Select>
                 {errors.cidade && <p className="text-destructive text-xs mt-1">{errors.cidade}</p>}
+              </div>
+
+              <div>
+                <Label htmlFor="c-mun" className="text-sm font-semibold">Município</Label>
+                <Input
+                  id="c-mun"
+                  value={form.municipio}
+                  onChange={(e) => setForm({ ...form, municipio: e.target.value })}
+                  placeholder="Sua cidade"
+                  className="mt-1 h-9 text-sm"
+                  disabled={loading}
+                  maxLength={100}
+                />
+                {errors.municipio && <p className="text-destructive text-xs mt-1">{errors.municipio}</p>}
               </div>
 
               <div>

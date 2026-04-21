@@ -44,7 +44,8 @@ const leadSchema = z.object({
     .max(20, "WhatsApp inválido")
     .regex(/^[\d\s()+-]+$/, "Use apenas números"),
   cidade: z.string().refine((v) => UFS.includes(v), { message: "Selecione seu estado" }),
-  tem_condominio: z.boolean(),
+  municipio: z.string().trim().min(2, "Informe a cidade").max(100),
+  tem_condominio: z.boolean({ required_error: "Selecione uma opção", invalid_type_error: "Selecione uma opção" }),
   faixa_investimento: z.enum(FAIXAS, { message: "Selecione uma faixa" }),
   prazo_inicio: z.enum(PRAZOS, { message: "Selecione um prazo" }),
 });
@@ -55,7 +56,8 @@ const initialForm = {
   nome: "",
   whatsapp: "",
   cidade: "",
-  tem_condominio: false,
+  municipio: "",
+  tem_condominio: null as unknown as boolean,
   faixa_investimento: "" as typeof FAIXAS[number] | "",
   prazo_inicio: "" as typeof PRAZOS[number] | "",
 };
@@ -88,6 +90,7 @@ export default function LeadForm() {
         nome: parsed.data.nome,
         whatsapp: parsed.data.whatsapp,
         cidade: parsed.data.cidade,
+        municipio: parsed.data.municipio,
         tem_condominio: parsed.data.tem_condominio,
         faixa_investimento: parsed.data.faixa_investimento,
         prazo_inicio: parsed.data.prazo_inicio,
@@ -256,25 +259,41 @@ export default function LeadForm() {
                     {errors.whatsapp && <p className="text-destructive text-xs mt-1">{errors.whatsapp}</p>}
                   </div>
 
-                  <div>
-                    <Label htmlFor="estado" className="font-semibold">Estado</Label>
-                    <Select
-                      value={form.cidade}
-                      onValueChange={(v) => setForm({ ...form, cidade: v })}
-                      disabled={loading}
-                    >
-                      <SelectTrigger id="estado" className="mt-1.5 h-11">
-                        <SelectValue placeholder="Selecione seu estado" />
-                      </SelectTrigger>
-                      <SelectContent className="max-h-72">
-                        {ESTADOS.map((e) => (
-                          <SelectItem key={e.uf} value={e.uf}>
-                            {e.nome} ({e.uf})
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    {errors.cidade && <p className="text-destructive text-xs mt-1">{errors.cidade}</p>}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="estado" className="font-semibold">Estado</Label>
+                      <Select
+                        value={form.cidade}
+                        onValueChange={(v) => setForm({ ...form, cidade: v })}
+                        disabled={loading}
+                      >
+                        <SelectTrigger id="estado" className="mt-1.5 h-11">
+                          <SelectValue placeholder="Selecione seu estado" />
+                        </SelectTrigger>
+                        <SelectContent className="max-h-72">
+                          {ESTADOS.map((e) => (
+                            <SelectItem key={e.uf} value={e.uf}>
+                              {e.nome} ({e.uf})
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      {errors.cidade && <p className="text-destructive text-xs mt-1">{errors.cidade}</p>}
+                    </div>
+
+                    <div>
+                      <Label htmlFor="municipio" className="font-semibold">Município</Label>
+                      <Input
+                        id="municipio"
+                        value={form.municipio}
+                        onChange={(e) => setForm({ ...form, municipio: e.target.value })}
+                        placeholder="Sua cidade"
+                        className="mt-1.5 h-11"
+                        disabled={loading}
+                        maxLength={100}
+                      />
+                      {errors.municipio && <p className="text-destructive text-xs mt-1">{errors.municipio}</p>}
+                    </div>
                   </div>
 
                   {/* Faixa de investimento */}
@@ -335,7 +354,7 @@ export default function LeadForm() {
                         onClick={() => setForm({ ...form, tem_condominio: true })}
                         disabled={loading}
                         className={`flex-1 h-11 rounded-md border-2 font-semibold text-sm transition-colors ${
-                          form.tem_condominio
+                          form.tem_condominio === true
                             ? "border-primary bg-primary text-primary-foreground"
                             : "border-input bg-background text-foreground hover:border-primary/50"
                         }`}
@@ -347,7 +366,7 @@ export default function LeadForm() {
                         onClick={() => setForm({ ...form, tem_condominio: false })}
                         disabled={loading}
                         className={`flex-1 h-11 rounded-md border-2 font-semibold text-sm transition-colors ${
-                          !form.tem_condominio
+                          form.tem_condominio === false
                             ? "border-primary bg-primary text-primary-foreground"
                             : "border-input bg-background text-foreground hover:border-primary/50"
                         }`}
@@ -355,6 +374,9 @@ export default function LeadForm() {
                         Ainda não
                       </button>
                     </div>
+                    {errors.tem_condominio && (
+                      <p className="text-destructive text-xs mt-1">{errors.tem_condominio}</p>
+                    )}
                   </div>
 
                   <Button type="submit" size="lg" disabled={loading} className="w-full h-auto min-h-12 py-3 px-4 font-bold text-sm sm:text-base whitespace-normal leading-tight">

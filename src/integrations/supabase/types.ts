@@ -20,6 +20,7 @@ export type Database = {
           created_at: string
           faixa_investimento: string | null
           id: string
+          municipio: string | null
           nome: string
           origem: string | null
           perfil: string | null
@@ -32,6 +33,7 @@ export type Database = {
           created_at?: string
           faixa_investimento?: string | null
           id?: string
+          municipio?: string | null
           nome: string
           origem?: string | null
           perfil?: string | null
@@ -44,6 +46,7 @@ export type Database = {
           created_at?: string
           faixa_investimento?: string | null
           id?: string
+          municipio?: string | null
           nome?: string
           origem?: string | null
           perfil?: string | null
