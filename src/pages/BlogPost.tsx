@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowLeft, ArrowRight } from "lucide-react";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
 
 const postsData: Record<string, { title: string; meta: string; category: string; date: string; content: string }> = {
   "o-que-e-mercado-autonomo": {
@@ -37,7 +38,7 @@ const postsData: Record<string, { title: string; meta: string; category: string;
   },
 };
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero saber mais sobre a ALMO!";
+const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Quero saber mais sobre a ALMO!");
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();

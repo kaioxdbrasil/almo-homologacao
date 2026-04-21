@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
 
-const WHATSAPP_URL =
-  "https://wa.me/5511999999999?text=Quero abrir um minimercado autônomo ALMO!";
+const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Quero abrir um minimercado autônomo ALMO!");
 
 interface FinalCTAProps {
   title?: string;
@@ -22,7 +22,7 @@ export default function FinalCTA({
   const whatsappText = variant === "almogo" 
     ? "Quero instalar uma Almo GO no meu espaço!"
     : "Quero abrir um minimercado autônomo ALMO!";
-  const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(whatsappText)}`;
+  const whatsappUrl = waUrl(WA_COMERCIAL, whatsappText);
 
   return (
     <section

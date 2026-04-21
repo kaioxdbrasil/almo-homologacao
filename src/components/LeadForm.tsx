@@ -14,8 +14,9 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2, ShieldCheck, Check, CheckCircle2 } from "lucide-react";
+import { WA_COMERCIAL } from "@/lib/constants";
 
-const WHATSAPP_NUMBER = "5511999999999";
+const WHATSAPP_NUMBER = WA_COMERCIAL;
 
 const FAIXAS = ["Até R$ 30k", "R$ 30k a R$ 50k", "R$ 50k a R$ 80k", "Acima de R$ 80k"] as const;
 const PRAZOS = ["Imediato", "1 a 3 meses", "3 a 6 meses", "Estou pesquisando"] as const;

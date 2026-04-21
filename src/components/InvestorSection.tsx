@@ -9,7 +9,9 @@ const points = [
   "Retorno previsível com renda recorrente",
 ];
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero falar com um especialista sobre investir na ALMO!";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
+
+const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Quero falar com um especialista sobre investir na ALMO!");
 
 export default function InvestorSection() {
   return (

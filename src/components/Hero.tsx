@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/hero-market.jpg";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero abrir um minimercado autônomo ALMO!";
+const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Quero abrir um minimercado autônomo ALMO!");
 
 const trustItems = [
   "Sem funcionário",

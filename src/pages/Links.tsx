@@ -15,11 +15,10 @@ import {
 } from "lucide-react";
 import almoLogo from "@/assets/almo-logo-white.png";
 import honestMarketImg from "@/assets/honest-market.jpg";
+import { WA_COMERCIAL, WA_SUPORTE, waUrl } from "@/lib/constants";
 
-const WHATSAPP_URL =
-  "https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre a ALMO.";
-const WHATSAPP_SUPPORT =
-  "https://wa.me/5511999999999?text=Olá! Preciso de suporte.";
+const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Olá! Gostaria de saber mais sobre a ALMO.");
+const WHATSAPP_SUPPORT = waUrl(WA_SUPORTE, "Olá! Preciso de suporte.");
 
 interface LinkItem {
   label: string;

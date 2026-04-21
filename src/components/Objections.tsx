@@ -6,9 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
 
-const WHATSAPP_URL =
-  "https://wa.me/5511999999999?text=Tenho dúvidas sobre o minimercado ALMO";
+const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Tenho dúvidas sobre o minimercado ALMO");
 
 const faqs = [
   {

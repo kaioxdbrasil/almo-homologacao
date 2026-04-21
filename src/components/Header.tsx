@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import almoLogoWhite from "@/assets/almo-logo-white.png";
 import almoLogo from "@/assets/almo-logo.png";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
 
 type NavItem = { label: string; href: string };
 
@@ -24,15 +25,15 @@ const CONDOS_NAV: NavItem[] = [
   { label: "Blog", href: "/blog" },
 ];
 
-const DEFAULT_WHATSAPP =
-  "https://wa.me/5511999999999?text=" +
-  encodeURIComponent("Olá! Gostaria de saber mais sobre a ALMO.");
+const DEFAULT_WHATSAPP = waUrl(
+  WA_COMERCIAL,
+  "Olá! Gostaria de saber mais sobre a ALMO.",
+);
 
-const CONDOS_WHATSAPP =
-  "https://wa.me/5511999999999?text=" +
-  encodeURIComponent(
-    "Olá! Tenho interesse em ter uma unidade Almo no meu condomínio/empresa.",
-  );
+const CONDOS_WHATSAPP = waUrl(
+  WA_COMERCIAL,
+  "Olá! Tenho interesse em ter uma unidade Almo no meu condomínio/empresa.",
+);
 
 interface HeaderProps {
   variant?: HeaderVariant;
