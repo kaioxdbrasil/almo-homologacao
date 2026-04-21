@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,8 @@ const trustItems = [
 ];
 
 export default function Hero() {
+  const [videoError, setVideoError] = useState(false);
+
   const scrollToForm = () => {
     document.getElementById("quero-comecar")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -111,14 +114,23 @@ export default function Hero() {
             className="relative order-1 lg:order-2"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-soft max-w-md lg:max-w-lg mx-auto aspect-video bg-black">
-              <iframe
-                src="https://www.youtube.com/embed/IMo28PIeAgQ?autoplay=1&mute=1&loop=1&playlist=IMo28PIeAgQ&controls=1&playsinline=1"
-                title="ALMO - Minimercado autônomo em condomínios"
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
+              {videoError ? (
+                <img
+                  src={heroImg}
+                  alt="ALMO - Minimercado autônomo em condomínios"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              ) : (
+                <iframe
+                  src="https://www.youtube.com/embed/IMo28PIeAgQ?autoplay=1&mute=1&loop=1&playlist=IMo28PIeAgQ&controls=1&playsinline=1"
+                  title="ALMO - Minimercado autônomo em condomínios"
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  onError={() => setVideoError(true)}
+                />
+              )}
             </div>
           </motion.div>
         </div>
