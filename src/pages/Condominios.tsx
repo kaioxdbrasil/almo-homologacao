@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOMeta from "@/components/SEOMeta";
 import CondoWhatsAppButton from "@/components/CondoWhatsAppButton";
 import CondoLeadForm from "@/components/CondoLeadForm";
 import heroCondoImg from "@/assets/hero-condo.jpg";
@@ -144,6 +145,10 @@ export default function Condominios() {
 
   return (
     <>
+      <SEOMeta
+        title="Para Condomínios"
+        description="Leve um minimercado autônomo para seu condomínio. Sem custo, sem funcionários."
+      />
       <Helmet>
         <title>Almo para condomínios e empresas | Mercado 24h sem custo</title>
         <meta

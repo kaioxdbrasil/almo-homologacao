@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
+import SEOMeta from "@/components/SEOMeta";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import HowItWorks from "@/components/HowItWorks";
@@ -33,6 +34,10 @@ const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Quero saber mais sobre o ALMO Honest M
 export default function HonestMarket() {
   return (
     <>
+      <SEOMeta
+        title="ALMO Honest Market"
+        description="Minimercado autônomo para condomínios, funcionando 24h sem funcionários."
+      />
       <Header />
       <main className="pt-20">
         {/* Hero */}
