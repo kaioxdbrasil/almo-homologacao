@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Building2, Award, Refrigerator, LifeBuoy } from "lucide-react";
+import { Headphones, MessageCircle } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -21,28 +21,14 @@ type Option = {
 
 const options: Option[] = [
   {
-    icon: Building2,
-    title: "Quero no meu condomínio",
-    desc: "Levar uma unidade ALMO para o meu prédio",
+    icon: MessageCircle,
+    title: "Falar com o comercial",
+    desc: "Tirar dúvidas, contratar ou ser parceiro",
     number: CONTACT_NUMBER,
-    message: "Olá! Tenho interesse em ter uma unidade ALMO no meu condomínio.",
+    message: "Olá! Quero falar com o time comercial da ALMO.",
   },
   {
-    icon: Award,
-    title: "Quero ser licenciado",
-    desc: "Operar uma unidade ALMO Honest Market",
-    number: CONTACT_NUMBER,
-    message: "Olá! Tenho interesse em me tornar um licenciado ALMO Honest Market.",
-  },
-  {
-    icon: Refrigerator,
-    title: "Quero uma geladeira autônoma",
-    desc: "Conhecer o ALMO GO para minha empresa",
-    number: CONTACT_NUMBER,
-    message: "Olá! Tenho interesse em uma geladeira autônoma ALMO GO.",
-  },
-  {
-    icon: LifeBuoy,
+    icon: Headphones,
     title: "Preciso de suporte",
     desc: "Atendimento técnico e operacional",
     number: SUPPORT_NUMBER,
@@ -74,10 +60,12 @@ export default function WhatsAppButton() {
       </button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md bg-[#ECE5DD] border-[#075E54]/20">
           <DialogHeader>
-            <DialogTitle className="font-display text-xl">Como podemos te ajudar?</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="font-display text-xl text-[#075E54]">
+              Como podemos te ajudar?
+            </DialogTitle>
+            <DialogDescription className="text-[#075E54]/70">
               Escolha a opção que melhor descreve o que você precisa.
             </DialogDescription>
           </DialogHeader>
@@ -89,16 +77,16 @@ export default function WhatsAppButton() {
                   key={opt.title}
                   type="button"
                   onClick={() => handleSelect(opt)}
-                  className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-primary/5 transition-all text-left group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-white border border-[#25D366]/30 hover:border-[#25D366] hover:bg-[#DCF8C6] transition-all text-left group shadow-sm"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <Icon className="w-5 h-5 text-primary group-hover:text-primary-foreground" />
+                  <div className="w-11 h-11 rounded-lg bg-[#25D366] flex items-center justify-center shrink-0 group-hover:bg-[#128C7E] transition-colors">
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="font-display font-semibold text-foreground text-sm">
+                    <div className="font-display font-semibold text-[#075E54] text-sm">
                       {opt.title}
                     </div>
-                    <div className="text-xs text-muted-foreground mt-0.5">{opt.desc}</div>
+                    <div className="text-xs text-[#075E54]/70 mt-0.5">{opt.desc}</div>
                   </div>
                 </button>
               );
