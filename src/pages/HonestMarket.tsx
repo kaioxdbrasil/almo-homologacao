@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, Store, Users, ShieldCheck, Clock } from "lucide-react";
 import honestImg from "@/assets/almo-honest-market-store.jpg";
 import heroImg from "@/assets/hero-market.jpg";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
 
 const benefits = [
   "Funciona 24 horas, 7 dias por semana",
@@ -27,7 +28,7 @@ const features = [
   { icon: Clock, title: "24/7", desc: "Disponível a qualquer hora, sem filas e sem espera." },
 ];
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero saber mais sobre o ALMO Honest Market!";
+const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Quero saber mais sobre o ALMO Honest Market!");
 
 export default function HonestMarket() {
   return (

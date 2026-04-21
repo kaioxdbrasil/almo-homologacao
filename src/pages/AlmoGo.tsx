@@ -6,6 +6,7 @@ import FinalCTA from "@/components/FinalCTA";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Refrigerator, Zap, BarChart3, MapPin } from "lucide-react";
 import fridgeImg from "@/assets/smart-fridge.jpg";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
 
 const benefits = [
   "Formato compacto, ideal para espaços reduzidos",
@@ -23,7 +24,7 @@ const features = [
   { icon: MapPin, title: "Onde instalar", desc: "Escritórios, coworkings, academias, hospitais e mais." },
 ];
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Quero saber mais sobre o ALMO GO!";
+const WHATSAPP_URL = waUrl(WA_COMERCIAL, "Quero saber mais sobre o ALMO GO!");
 
 export default function AlmoGo() {
   return (

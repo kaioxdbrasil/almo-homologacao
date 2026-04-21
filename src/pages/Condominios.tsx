@@ -15,6 +15,7 @@ import CondoWhatsAppButton from "@/components/CondoWhatsAppButton";
 import CondoLeadForm from "@/components/CondoLeadForm";
 import heroCondoImg from "@/assets/hero-condo.jpg";
 import interiorMercadoImg from "@/assets/interior-mercado.jpg";
+import { WA_COMERCIAL, waUrl } from "@/lib/constants";
 
 const HERO_BG = "#0f1b4d";
 const BRAND_BLUE = "#425CC7";
@@ -23,11 +24,10 @@ const SOFT_GRAY = "#f8f8f8";
 const SECTION_GRAY = "#f4f4f2";
 const WHATSAPP_GREEN = "#25D366";
 
-const WHATSAPP_URL =
-  "https://wa.me/5511999999999?text=" +
-  encodeURIComponent(
-    "Olá! Tenho interesse em ter uma unidade Almo no meu condomínio/empresa.",
-  );
+const WHATSAPP_URL = waUrl(
+  WA_COMERCIAL,
+  "Olá! Tenho interesse em ter uma unidade Almo no meu condomínio/empresa.",
+);
 
 /** Bloco placeholder com aspect-ratio 4:3 */
 function ImagePlaceholder({ label }: { label: string }) {
