@@ -117,9 +117,14 @@ export default function LeadForm() {
       setForm(initialForm);
     } catch (err) {
       console.error("Erro ao salvar lead:", err);
+      // fallback: redireciona pro WhatsApp mesmo sem salvar
+      const msg = encodeURIComponent(
+        `Olá! Tive problema no formulário. ${parsed.data.nome}, ${parsed.data.whatsapp}`,
+      );
+      window.open(`https://wa.me/${WA_COMERCIAL}?text=${msg}`, "_blank");
       toast({
         title: "Ops, algo deu errado",
-        description: "Tente novamente em instantes ou fale direto pelo WhatsApp.",
+        description: "Te redirecionamos para o WhatsApp.",
         variant: "destructive",
       });
     } finally {
