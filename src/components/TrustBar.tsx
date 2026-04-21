@@ -1,66 +1,27 @@
-// Logos puxados via Google Favicon API (s=128 = alta resolução).
-// Para substituir por arquivos próprios: salvar em src/assets/partners/ e trocar `logo` pelo import.
-const partners = [
-  { name: "Ambev", domain: "ambev.com.br" },
-  { name: "Coca-Cola", domain: "cocacolabrasil.com.br" },
-  { name: "Nestlé", domain: "nestle.com.br" },
-  { name: "Mercado Pago", domain: "mercadopago.com.br" },
-  { name: "Stone", domain: "stone.com.br" },
+import { CheckCircle2 } from "lucide-react";
+
+const seals = [
+  "+16 unidades em operação",
+  "Região Norte",
+  "Modelo validado",
+  "Suporte completo",
 ];
 
-const getLogo = (domain: string) =>
-  `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
-
 export default function TrustBar() {
-  // Duplicamos a lista para o efeito de loop infinito sem "salto"
-  const loop = [...partners, ...partners];
-
   return (
-    <section className="bg-card border-y border-border py-10 overflow-hidden">
-      <div className="container mx-auto mb-6">
-        <p className="text-center text-xs font-bold tracking-widest text-muted-foreground uppercase">
-          Parceiros e fornecedores oficiais
-        </p>
-      </div>
-
-      <div
-        className="relative w-full"
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-        }}
-      >
-        <div className="flex w-max animate-marquee gap-12 md:gap-16">
-          {loop.map((p, i) => (
-            <div
-              key={`${p.name}-${i}`}
-              aria-label={p.name}
-              className="group flex h-16 w-32 shrink-0 items-center justify-center rounded-lg bg-background border border-border px-6"
+    <section className="bg-muted py-6">
+      <div className="container mx-auto">
+        <ul className="flex flex-wrap items-center justify-center gap-8">
+          {seals.map((seal) => (
+            <li
+              key={seal}
+              className="flex items-center gap-2 text-sm text-foreground/80"
             >
-              <img
-                src={getLogo(p.domain)}
-                alt={`Logo ${p.name}`}
-                loading="lazy"
-                className="max-h-10 max-w-full object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"
-                onError={(e) => {
-                  // Fallback: placeholder cinza com nome se a API falhar
-                  const target = e.currentTarget;
-                  target.style.display = "none";
-                  const parent = target.parentElement;
-                  if (parent && !parent.querySelector(".logo-fallback")) {
-                    const fb = document.createElement("span");
-                    fb.className =
-                      "logo-fallback font-display font-bold text-sm text-muted-foreground";
-                    fb.textContent = p.name;
-                    parent.appendChild(fb);
-                  }
-                }}
-              />
-            </div>
+              <CheckCircle2 size={18} className="text-primary shrink-0" />
+              <span className="font-medium">{seal}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

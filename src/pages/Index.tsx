@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
 import BusinessModel from "@/components/BusinessModel";
 import SolutionsShowcase from "@/components/SolutionsShowcase";
 import SocialProof from "@/components/SocialProof";
@@ -15,6 +16,7 @@ export default function Index() {
       <Header />
       <main>
         <Hero />
+        <TrustBar />
         <BusinessModel />
         <SolutionsShowcase />
         <Differentials />
