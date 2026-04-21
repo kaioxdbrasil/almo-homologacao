@@ -89,8 +89,7 @@ export default function LeadForm() {
       const { error } = await supabase.from("leads").insert({
         nome: parsed.data.nome,
         whatsapp: parsed.data.whatsapp,
-        cidade: parsed.data.cidade,
-        municipio: parsed.data.municipio,
+        cidade: parsed.data.municipio ? `${parsed.data.cidade} - ${parsed.data.municipio}` : parsed.data.cidade,
         tem_condominio: parsed.data.tem_condominio,
         faixa_investimento: parsed.data.faixa_investimento,
         prazo_inicio: parsed.data.prazo_inicio,
