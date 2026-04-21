@@ -25,7 +25,7 @@ const items = [
   {
     icon: Camera,
     title: "Segurança real",
-    desc: "Câmeras, sensores e antifraude. Índice de perda controlado e dentro do esperado.",
+    desc: "Câmeras e sistema antifraude. Índice de perda controlado e dentro do esperado.",
   },
   {
     icon: GraduationCap,
