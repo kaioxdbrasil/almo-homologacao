@@ -210,16 +210,17 @@ export default function Links() {
             />
           </motion.div>
 
-          {/* Secondary links */}
+          {/* Site link */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="flex flex-col gap-2"
           >
-            {secondaryLinks.map((item) => (
-              <LinkButton key={item.label} item={item} variant="secondary" />
-            ))}
+            <LinkButton
+              item={{ label: "Acessar o site", href: "/", icon: ExternalLink }}
+              variant="secondary"
+            />
           </motion.div>
         </div>
 
