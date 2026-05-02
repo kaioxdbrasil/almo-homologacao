@@ -12,6 +12,7 @@ import Sobre from "./pages/Sobre";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Links from "./pages/Links";
+import LP from "./pages/LP";
 import NotFound from "./pages/NotFound";
 import AccessibilityWidget from "./components/AccessibilityWidget";
 import ScrollToTop from "./components/ScrollToTop";
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/links" element={<Links />} />
+            <Route path="/lp" element={<LP />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
